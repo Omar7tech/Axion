@@ -33,7 +33,6 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->brandLogo(asset('/icons/axion2.png'))
             ->defaultThemeMode(ThemeMode::Dark)
-            
             ->profile()
             ->globalSearch(false)
             ->brandLogoHeight('3rem')
