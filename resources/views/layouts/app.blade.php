@@ -17,7 +17,12 @@
 </head>
 
 <body class="bg-brand-black text-brand-white font-poppins">
-    {{ $slot }}
+    <x-nav />
+
+    <main class="pt-[66px]">
+        {{ $slot }}
+    </main>
+
     @livewireScripts
 </body>
 

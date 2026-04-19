@@ -13,5 +13,6 @@
     --color-brand-second-black: #111111;
     --color-brand-yellow: #E6B12E;
     --color-brand-white: #FFFFFF;
-
 }
+
+[x-cloak] { display: none !important; }
