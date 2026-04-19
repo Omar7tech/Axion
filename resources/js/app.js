@@ -59,3 +59,34 @@ lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add(time => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Parallax for Background (Moves slowly up)
+    gsap.to("#parallax-bg", {
+        scrollTrigger: {
+            trigger: "section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: 100,
+        opacity: 0.1
+    });
+
+    // Parallax for Content (Moves faster up)
+    gsap.to("#parallax-content", {
+        scrollTrigger: {
+            trigger: "section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: -80,
+        opacity: 0
+    });
+});
+
+
