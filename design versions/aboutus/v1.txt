@@ -1,0 +1,159 @@
+<div class="bg-brand-black text-white font-sans selection:bg-brand-yellow selection:text-brand-black">
+
+    {{-- ===================== 01. THE ARCHITECTURAL HERO ===================== --}}
+    <section class="relative min-h-screen flex items-center px-6 lg:px-20 py-10 overflow-hidden">
+        {{-- High-End Structural Overlay --}}
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-brand-yellow/[0.03] to-transparent"></div>
+        
+        <div class="container mx-auto max-w-7xl relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-8 space-y-10">
+                    <div class="flex items-center gap-6">
+                        <span class="h-px w-20 bg-brand-yellow"></span>
+                        <span class="text-brand-yellow text-[11px] font-black uppercase tracking-[0.6em]">Legacy of Precision</span>
+                    </div>
+                    <h1 class="text-7xl md:text-[120px] font-black uppercase tracking-[ -0.05em] leading-[0.8] mb-0">
+                        Built on <br/>
+                        <span class="text-transparent stroke-white stroke-1" style="-webkit-text-stroke: 1px rgba(255,255,255,0.2);">Systems.</span>
+                    </h1>
+                    <div class="max-w-xl border-l-2 border-brand-yellow pl-10 py-2">
+                        <p class="text-lg md:text-xl font-bold uppercase tracking-tight leading-snug">
+                            AXION is a partner focused on stable and reliable supply and production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Vertical Indicator --}}
+        <div class="absolute right-10 bottom-10 hidden lg:block">
+            <p class="text-[9px] font-black uppercase tracking-[0.5em] origin-right -rotate-90 text-white/20">Scroll to Explore — 01</p>
+        </div>
+    </section>
+
+    {{-- ===================== 02. THE SYSTEM MANIFESTO (SPLIT DESIGN) ===================== --}}
+    <section class="relative py-32 border-y border-white/5">
+        <div class="container mx-auto px-6 lg:px-20 max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative order-2 lg:order-1">
+                    <div class="relative z-10 aspect-square overflow-hidden rounded-sm border border-white/10">
+                        <img src="https://picsum.photos/1000/1000?grayscale&random=55" class="w-full h-full object-cover scale-110" alt="Industrial Workflow">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-brand-yellow flex items-center justify-center p-8 hidden md:flex">
+                        <p class="text-black font-black uppercase text-xl leading-none italic tracking-tighter">Consistency <br/> Before <br/> Speed.</p>
+                    </div>
+                </div>
+                <div class="space-y-8 order-1 lg:order-2">
+                    <h2 class="text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-none">The Science <br/> of Uniformity.</h2>
+                    <p class="text-white/50 text-sm leading-relaxed max-w-lg">
+                        Standardized workflows are at the core of our operations, ensuring consistency and precision at every stage. By minimizing variation, we deliver uniform quality from the first batch to the last. 
+                    </p>
+                    <div class="space-y-4 pt-6">
+                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
+                            <span class="text-[10px] font-black uppercase text-white/40">Reliability</span>
+                            <span class="text-brand-yellow font-black">99.9%</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
+                            <span class="text-[10px] font-black uppercase text-white/40">Market Presence</span>
+                            <span class="text-brand-yellow font-black">Global</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 03. CORE VALUES (MOSAIC GRID) ===================== --}}
+    <section class="py-32 bg-white/[0.01]">
+        <div class="container mx-auto px-6 lg:px-20 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-4">
+                {{-- Header Box --}}
+                <div class="md:col-span-6 p-12 bg-brand-yellow text-black flex flex-col justify-between min-h-[300px]">
+                    <h3 class="text-5xl font-black uppercase tracking-tighter leading-none">Our Core <br/> Values</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest">Principles that drive industrial evolution.</p>
+                </div>
+
+                {{-- Value 1 --}}
+                <div class="md:col-span-3 p-8 border border-white/5 hover:bg-white/5 transition-colors">
+                    <span class="text-brand-yellow font-black text-xs">/01</span>
+                    <h4 class="mt-4 text-sm font-black uppercase">Systems Over Effort</h4>
+                </div>
+
+                {{-- Value 2 --}}
+                <div class="md:col-span-3 p-8 border border-white/5 hover:bg-white/5 transition-colors">
+                    <span class="text-brand-yellow font-black text-xs">/02</span>
+                    <h4 class="mt-4 text-sm font-black uppercase">Measured Growth</h4>
+                </div>
+
+                {{-- Value 3 --}}
+                <div class="md:col-span-4 p-8 border border-white/5 hover:bg-white/5 transition-colors">
+                    <span class="text-brand-yellow font-black text-xs">/03</span>
+                    <h4 class="mt-4 text-sm font-black uppercase">Discipline in Execution</h4>
+                </div>
+
+                {{-- Value 4 --}}
+                <div class="md:col-span-4 p-8 border border-white/5 hover:bg-white/5 transition-colors">
+                    <span class="text-brand-yellow font-black text-xs">/04</span>
+                    <h4 class="mt-4 text-sm font-black uppercase">Continuous Improvement</h4>
+                </div>
+
+                {{-- Value 5 --}}
+                <div class="md:col-span-4 p-8 border border-white/5 hover:bg-white/5 transition-colors">
+                    <span class="text-brand-yellow font-black text-xs">/05</span>
+                    <h4 class="mt-4 text-sm font-black uppercase">Accountability</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 04. LEADERSHIP (CINEMATIC CARDS) ===================== --}}
+    <section class="py-32">
+        <div class="container mx-auto px-6 lg:px-20 max-w-7xl">
+            <div class="mb-20 text-center lg:text-left">
+                <h2 class="text-5xl font-black uppercase tracking-tighter mb-4">The Specialists</h2>
+                <p class="text-white/30 uppercase tracking-[0.4em] text-[10px] font-bold">Built on discipline and system thinking</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                @php
+                    $team = [
+                        ['Michael Harrington', 'CEO', '20'],
+                        ['Daniel Whitmore', 'COO', '21'],
+                        ['Sarah Mitchell', 'Quality Assurance Lead', '22']
+                    ];
+                @endphp
+
+                @foreach($team as $member)
+                <div class="group relative overflow-hidden bg-[#111] p-2 rounded-lg">
+                    <div class="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        <img src="https://picsum.photos/800/1000?random={{ $member[2] }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <p class="text-brand-yellow text-[10px] font-black uppercase tracking-widest">{{ $member[1] }}</p>
+                        <h5 class="text-xl font-black uppercase">{{ $member[0] }}</h5>
+                        <button class="text-[9px] font-black uppercase tracking-widest text-white/30 group-hover:text-white transition-colors">View Bio —</button>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 05. CALL TO ACTION (MINIMAL) ===================== --}}
+    <section class="py-40 bg-brand-yellow text-black overflow-hidden relative">
+        {{-- Large Decorative Text --}}
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+            <span class="text-[300px] font-black uppercase tracking-tighter">AXION</span>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-10">
+                Powerful Platforms. <br/> Global Movement.
+            </h2>
+            <a href="#" class="inline-block px-14 py-5 bg-black text-brand-yellow font-black uppercase tracking-[0.4em] text-xs hover:scale-105 transition-transform shadow-2xl">
+                Get Started
+            </a>
+        </div>
+    </section>
+</div>
