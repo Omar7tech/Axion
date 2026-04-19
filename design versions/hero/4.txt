@@ -1,0 +1,138 @@
+<div class="bg-brand-black text-white font-sans selection:bg-brand-yellow selection:text-brand-black overflow-x-hidden">
+
+    {{-- ===================== CONCEPT 11: THE KINETIC ARCHIVE ===================== --}}
+    <section class="relative min-h-screen flex items-center justify-center p-6 lg:p-20 overflow-hidden">
+        
+        {{-- Background Large Depth Text --}}
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+            <h2 class="text-[30vw] font-black tracking-[ -0.05em] uppercase">CORE</h2>
+        </div>
+
+        <div class="container mx-auto max-w-7xl relative z-20">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                {{-- LEFT: HIGH-DENSITY TEXT MONOLITH --}}
+                <div class="lg:col-span-6 space-y-10">
+                    <div class="flex items-center gap-4">
+                        <div class="h-[2px] w-12 bg-brand-yellow"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-yellow">Operational_Manifesto_v.2026</span>
+                    </div>
+
+                    <h1 class="text-7xl lg:text-[7rem] font-black tracking-tighter leading-[0.8] uppercase">
+                        AXION<br/><span class="text-white/20 italic">GROUP</span>
+                    </h1>
+
+                    {{-- The Full Content Block --}}
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-white/[0.01] border border-white/5 rounded-2xl -z-10 group-hover:bg-white/[0.03] transition-all"></div>
+                        <div class="space-y-6 max-w-xl">
+                            <p class="text-sm lg:text-base text-white/60 leading-relaxed font-medium">
+                                <span class="text-brand-yellow font-black">AXION Holding Group</span> is a dynamic global platform that integrates technology, trade, and industrial innovation into a unified ecosystem. The company is dedicated to driving progress by connecting advanced technological solutions with international markets and industrial operations.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-8 py-4 border-y border-white/5">
+                                <p class="text-[11px] text-white/40 leading-relaxed uppercase tracking-wider">
+                                    Fostering sustainable growth, enabling businesses to expand their reach while optimizing efficiency and productivity through strategic partnerships.
+                                </p>
+                                <p class="text-[11px] text-white/40 leading-relaxed uppercase tracking-wider border-l border-white/10 pl-8">
+                                    Bridging gaps between industries and regions, facilitating global commerce and industrial development with long-term value creation.
+                                </p>
+                            </div>
+
+                            <p class="text-sm text-white/40 leading-relaxed italic">
+                                With a vision to shape the future of global enterprise, the organization continues to evolve, adapting to changing market demands while maintaining a strong foundation rooted in excellence, integrity, and innovation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <button class="px-12 py-5 bg-brand-yellow text-brand-black font-black uppercase tracking-widest text-[10px] shadow-[0_20px_40px_rgba(255,225,0,0.1)] hover:bg-white hover:shadow-none transition-all">
+                            Initialize Protocol
+                        </button>
+                    </div>
+                </div>
+
+                {{-- RIGHT: THE 3D ROTATED VIEWPORT --}}
+                <div class="lg:col-span-6 perspective-2000">
+                    <div class="relative transform-gpu lg:rotate-y-[-25deg] lg:rotate-x-[12deg] lg:translate-x-12 transition-transform duration-1000 ease-out group">
+                        
+                        {{-- 3D Box Sides (Creating physical volume) --}}
+                        <div class="absolute top-0 -right-10 h-full w-10 bg-white/5 border-y border-r border-white/10 origin-left rotate-y-90"></div>
+                        <div class="absolute -bottom-10 left-0 h-10 w-full bg-white/[0.02] border-x border-b border-white/10 origin-top rotate-x-[-90deg]"></div>
+
+                        {{-- Main Video "Glass" Unit --}}
+                        <div class="relative aspect-[4/5] lg:aspect-square bg-brand-black border border-white/20 shadow-[60px_60px_100px_rgba(0,0,0,0.7)] overflow-hidden">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover scale-125 group-hover:scale-100 transition-transform duration-[2s]">
+                                <source src="{{ asset('videos/hero.mp4') }}" type="video/mp4">
+                            </video>
+                            
+                            {{-- Interface HUD --}}
+                            <div class="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-1000"></div>
+                            <div class="absolute inset-0 border-[30px] border-brand-black/40 pointer-events-none"></div>
+                            
+                            {{-- Floating Data Strip --}}
+                            <div class="absolute top-10 left-0 w-full overflow-hidden">
+                                <div class="bg-brand-yellow/90 backdrop-blur-md py-1 px-4 text-brand-black text-[9px] font-black uppercase tracking-[0.3em] flex gap-10 animate-marquee">
+                                    <span>Global_Enterprise_Systems</span>
+                                    <span>Adaptive_Industrial_Models</span>
+                                    <span>Innovation_Excellence_Integrity</span>
+                                    <span>2026_Holdings_Core</span>
+                                </div>
+                            </div>
+
+                            {{-- Bottom Status Badge --}}
+                            <div class="absolute bottom-10 right-10 bg-brand-black/80 backdrop-blur-xl border border-white/10 p-6 flex flex-col gap-1 translate-z-50">
+                                <span class="text-[8px] font-bold text-brand-yellow uppercase tracking-widest">Network_Sync</span>
+                                <span class="text-3xl font-black tracking-tighter italic">99.9%</span>
+                            </div>
+                        </div>
+
+                        {{-- Glow Reflection --}}
+                        <div class="absolute -inset-10 bg-brand-yellow/5 blur-[120px] rounded-full -z-10 group-hover:bg-brand-yellow/10 transition-all"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== FOOTER: MINIMALIST PROFESSIONAL ===================== --}}
+    <footer class="py-12 border-t border-white/5 bg-brand-black px-10">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="text-2xl font-black tracking-tighter uppercase mb-1">AXION.</span>
+                <span class="text-[8px] font-bold text-white/20 uppercase tracking-[0.6em]">Holding Group 2026</span>
+            </div>
+
+            <div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">
+                <a href="#" class="hover:text-brand-yellow transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-brand-yellow transition-colors">Instagram</a>
+                <a href="#" class="hover:text-brand-yellow transition-colors">Privacy</a>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end">
+                <span class="text-[9px] font-black text-white/10 uppercase tracking-[0.5em]">Beirut // Lebanon HQ</span>
+                <span class="text-[9px] font-black text-white/10 uppercase tracking-[0.5em]">Developed by Webtimize Local</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<style>
+    .perspective-2000 { perspective: 2000px; }
+    .transform-gpu { transform-style: preserve-3d; }
+    .rotate-y-\[-25deg\] { transform: rotateY(-25deg); }
+    .rotate-x-\[12deg\] { transform: rotateX(12deg); }
+    .rotate-y-90 { transform: rotateY(90deg); }
+    .rotate-x-\[-90deg\] { transform: rotateX(-90deg); }
+    .translate-z-50 { transform: translateZ(50px); }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        animation: marquee 20s linear infinite;
+    }
+</style>

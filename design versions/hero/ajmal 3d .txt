@@ -1,0 +1,204 @@
+<div class="bg-brand-black text-white font-sans selection:bg-brand-yellow selection:text-brand-black overflow-x-hidden">
+
+    {{-- ===================== CONCEPT 05: THE KINETIC VAULT ===================== --}}
+    <section class="relative min-h-[calc(100vh-66px)] flex items-center justify-center p-6 lg:p-20">
+        
+        {{-- Background Depth Text (Large & Faded) --}}
+        <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] uppercase tracking-tighter select-none z-0">
+            SYSTEMS
+        </h2>
+
+        <div class="container mx-auto max-w-7xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                
+                {{-- Left: Compact Content Cluster --}}
+                <div class="w-full lg:w-5/12 space-y-8 order-2 lg:order-1">
+                    <div class="inline-block">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-yellow px-3 py-1 border border-brand-yellow/30 bg-brand-yellow/5">
+                            Node: Global_HQ_2026
+                        </span>
+                    </div>
+
+                    <h1 class="text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
+                        AXION<br/>
+                        <span class="text-brand-yellow italic">HOLDING.</span>
+                    </h1>
+
+                    <p class="text-white/40 text-sm leading-relaxed max-w-sm border-l border-white/10 pl-6">
+                        A unified ecosystem bridging advanced technological solutions with international industrial operations. Excellence by design, consistency by system.
+                    </p>
+
+                    <div class="flex items-center gap-6 pt-4">
+                        <button class="group relative px-8 py-4 bg-white text-black font-black uppercase tracking-widest text-[10px] overflow-hidden shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-transform hover:-translate-y-1">
+                            <span class="relative z-10">Initiate System</span>
+                            <div class="absolute inset-0 bg-brand-yellow translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        </button>
+                        
+                        <div class="hidden sm:block">
+                            <p class="text-[9px] font-bold text-white/20 uppercase tracking-widest mb-1">Status</p>
+                            <p class="text-xs font-bold text-green-500 uppercase tracking-tighter flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Operational
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Right: The 3D Floating Video Vault --}}
+                <div class="w-full lg:w-7/12 order-1 lg:order-2 perspective-1000">
+                    <div class="relative transform lg:rotate-y-[-12deg] lg:rotate-x-[5deg] transition-transform duration-700 hover:rotate-0 group">
+                        
+                        {{-- 3D "Shadow" Layer --}}
+                        <div class="absolute -inset-4 bg-brand-yellow/20 blur-3xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                        {{-- Main Video Container --}}
+                        <div class="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[20px_40px_80px_rgba(0,0,0,0.8)]">
+                            <video 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                class="w-full h-full object-cover">
+                                <source src="{{ asset('videos/hero.mp4') }}" type="video/mp4">
+                            </video>
+                            
+                            {{-- Glass Overlay --}}
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-black/60 via-transparent to-white/10 opacity-60"></div>
+                            
+                            {{-- Scanning Line Animation --}}
+                            <div class="absolute top-0 left-0 h-1/2 w-full bg-gradient-to-b from-brand-yellow/20 to-transparent -translate-y-full animate-[scan_4s_linear_infinite]"></div>
+                        </div>
+
+                        {{-- Floating Data Badge (Stuck to 3D block) --}}
+                        <div class="absolute -bottom-6 -right-6 p-5 backdrop-blur-2xl bg-white/[0.03] border border-white/10 rounded-2xl shadow-2xl translate-z-20">
+                            <div class="flex items-center gap-4">
+                                <div class="p-3 bg-brand-yellow rounded-xl">
+                                    <svg class="w-5 h-5 text-brand-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-white/40 uppercase tracking-widest">Efficiency</p>
+                                    <p class="text-xl font-black italic tracking-tighter">+94.8%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== COMPACT GRID STRIP ===================== --}}
+    <section class="py-12 border-y border-white/5 bg-white/[0.01]">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                @foreach([['Sectors','11'], ['Presence','Global'], ['Execution','Precision'], ['Standard','ISO_9001']] as $metric)
+                <div class="group cursor-default">
+                    <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 group-hover:text-brand-yellow transition-colors mb-1">{{ $metric[0] }}</p>
+                    <p class="text-xl font-black uppercase tracking-tighter">{{ $metric[1] }}</p>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== THE MANIFESTO (COMPACT) ===================== --}}
+    <section class="py-24 lg:py-40">
+        <div class="container mx-auto px-8 max-w-5xl">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 text-9xl font-black text-white/[0.03]">“</div>
+                    <h2 class="text-4xl lg:text-5xl font-black tracking-tighter leading-tight relative z-10">
+                        Consistency is the <br/>
+                        <span class="text-brand-yellow">operating system</span> <br/>
+                        of our trust.
+                    </h2>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-white/50 leading-relaxed">
+                        AXION Holding Group ensures reliable outcomes by integrating technology and industrial operations into a unified platform. We minimize variation to deliver uniform quality from the first batch to the last.
+                    </p>
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-brand-yellow transition-colors">Our Standardized Workflows</span>
+                        <div class="flex-1 h-px bg-white/10 group-hover:bg-brand-yellow transition-all"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 3D BENTO SECTORS ===================== --}}
+    <section class="py-24 bg-white/[0.01]">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @php
+                $divisions = [
+                    ['Agriculture', 'Feeding the world via smart farming.', 'Global Sourcing'],
+                    ['Technology & AI', 'Engineering tomorrow\'s industry.', 'Robotics'],
+                    ['Logistics', 'Moving goods with certainty.', 'Supply Chain'],
+                    ['AXION Energy', 'Gateway to energy markets.', 'Renewables'],
+                    ['Finance', 'Intelligent global trading.', 'Investment'],
+                    ['Construction', 'Building infrastructure.', 'Real Estate']
+                ];
+                @endphp
+
+                @foreach($divisions as $div)
+                <div class="p-8 border border-white/5 bg-brand-black hover:border-brand-yellow/50 hover:-translate-y-2 transition-all duration-500 rounded-3xl group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-black transition-colors">
+                            <span class="text-xs font-mono font-bold">0{{ $loop->iteration }}</span>
+                        </div>
+                        <span class="text-[9px] font-bold text-white/20 uppercase tracking-widest">{{ $div[2] }}</span>
+                    </div>
+                    <h3 class="text-xl font-black uppercase tracking-tighter mb-4">{{ $div[0] }}</h3>
+                    <p class="text-xs text-white/40 leading-relaxed mb-8">{{ $div[1] }}</p>
+                    <div class="h-1 w-0 bg-brand-yellow group-hover:w-full transition-all duration-500"></div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== TESTIMONIALS (COMPACT) ===================== --}}
+    <section class="py-24 border-t border-white/5">
+        <div class="container mx-auto px-8">
+            <div class="bg-white/[0.02] p-12 lg:p-20 rounded-[3rem] border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/5 blur-[100px]"></div>
+                <div class="max-w-3xl relative z-10">
+                    <p class="text-2xl font-bold tracking-tight mb-8 italic">“AXION is not just a partner — they are a complete ecosystem. From supply chain to technology, every division works in perfect alignment.”</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-1 h-8 bg-brand-yellow"></div>
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-widest">Stacey Adams</p>
+                            <p class="text-[9px] text-white/20 uppercase font-bold tracking-widest">Operations Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== CTA ===================== --}}
+    <section class="py-20 px-8 text-center">
+        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10">Ready to <span class="text-brand-yellow">Scale?</span></h2>
+        <a href="#" class="inline-block px-12 py-5 bg-brand-yellow text-brand-black font-black uppercase tracking-widest text-xs transition-transform hover:scale-110 active:scale-95 shadow-[0_20px_50px_rgba(255,225,0,0.15)]">
+            Contact the Group
+        </a>
+    </section>
+
+</div>
+
+<style>
+    .perspective-1000 { perspective: 1000px; }
+    .rotate-y-[-12deg] { transform: rotateY(-12deg); }
+    .rotate-x-[5deg] { transform: rotateX(5deg); }
+    .translate-z-20 { transform: translateZ(20px); }
+
+    @keyframes scan {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+    }
+
+    /* Custom Hide Scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>

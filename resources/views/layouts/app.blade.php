@@ -16,6 +16,8 @@
     @livewireStyles
 </head>
 
+
+
 <body class="bg-brand-black text-brand-white font-poppins">
     <x-nav />
 

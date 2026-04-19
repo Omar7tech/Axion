@@ -1,0 +1,211 @@
+<div class="bg-brand-black text-white font-sans selection:bg-brand-yellow selection:text-brand-black">
+
+    {{-- ===================== 001 — KINETIC HERO ===================== --}}
+    <section class="relative min-h-[calc(100vh-66px)] flex items-center overflow-hidden border-b border-white/5">
+        {{-- Background Grid & Glow --}}
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-yellow/[0.03] rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="container mx-auto px-8 lg:px-16 relative z-10">
+            <div class="max-w-[1100px]">
+                <div class="inline-flex items-center gap-3 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-yellow">Award Winning Firm</span>
+                </div>
+                
+                <h1 class="font-bold leading-[0.9] tracking-tighter mb-10" style="font-size: clamp(3.5rem, 10vw, 9rem);">
+                    AXION <span class="text-white/20">HOLDING</span><br/>
+                    <span class="italic text-brand-yellow">GROUP.</span>
+                </h1>
+
+                <p class="max-w-xl text-lg text-white/40 leading-relaxed mb-12">
+                    A global platform integrating Technology, Trade, and Industrial Innovation into a unified ecosystem. We bridge the gap between global markets and local execution.
+                </p>
+
+                <div class="flex flex-wrap gap-6">
+                    <a href="#divisions" class="px-10 py-5 bg-brand-yellow text-brand-black font-bold uppercase tracking-widest text-xs transition-transform hover:scale-105">
+                        Explore Divisions
+                    </a>
+                    <a href="#about" class="px-10 py-5 border border-white/10 font-bold uppercase tracking-widest text-xs hover:bg-white/5 transition-colors">
+                        About the Group
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Floating Industrial Coordinate --}}
+        <div class="absolute bottom-12 right-12 hidden lg:block">
+            <div class="text-right border-r-2 border-brand-yellow pr-6">
+                <p class="text-[10px] font-mono text-white/20 uppercase tracking-widest">Headquarters</p>
+                <p class="text-sm font-bold text-white/60 uppercase">Global Operations 2026</p>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 002 — THE CORE MANIFESTO ===================== --}}
+    <section class="py-24 lg:py-40 bg-white/[0.01]">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="grid lg:grid-cols-2 gap-20 items-start">
+                <div>
+                    <p class="text-brand-yellow text-[10px] font-bold uppercase tracking-[0.4em] mb-6">001 — Vision</p>
+                    <h2 class="text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
+                        Where <span class="text-white/30">Consistency</span> Matters Most.
+                    </h2>
+                </div>
+                <div class="space-y-8">
+                    <p class="text-xl text-white/50 leading-relaxed">
+                        In business, consistency ensures reliable outcomes, strengthens brand reputation, and builds lasting relationships. Whether in technology, trade, or industrial operations, consistent standards drive efficiency.
+                    </p>
+                    <div class="h-[1px] w-full bg-white/10"></div>
+                    <p class="text-sm text-white/30 uppercase tracking-widest leading-loose">
+                        Standardized workflows eliminate variation. <br/>
+                        Uniform quality from first batch to last.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 003 — THE SECTOR GRID ===================== --}}
+    <section id="divisions" class="py-24 border-y border-white/5">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <p class="text-brand-yellow text-[10px] font-bold uppercase tracking-[0.4em] mb-4">002 — Portfolio</p>
+                    <h3 class="text-4xl font-bold">Core Divisions</h3>
+                </div>
+                <span class="text-[10px] text-white/20 font-mono italic">Total Sectors: 11</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white/10 border border-white/10">
+                @php
+                    $divisions = [
+                        ['Agriculture Expansion', 'Feeding the world through smart farming and global supply chains.'],
+                        ['Technology & AI', 'Engineering the intelligence that powers tomorrow\'s industry.'],
+                        ['Construction & Real Estate', 'Building the infrastructure of a connected world.'],
+                        ['Finance & Investment', 'Where global demand meets intelligent trading.'],
+                        ['Logistics & Supply Chain', 'Moving goods, connecting continents, delivering certainty.'],
+                        ['Medical & Pharma', 'Advancing health through science and global distribution.'],
+                        ['Equipment & Automotive', 'Driving the future with next-gen vehicle technology.'],
+                        ['AXION Energy', 'Gateway to global energy markets and reliable sourcing.'],
+                        ['AXION Digital', 'Empowering businesses with cutting-edge digital platforms.']
+                    ];
+                @endphp
+
+                @foreach($divisions as $div)
+                <div class="bg-brand-black p-10 group hover:bg-brand-yellow transition-all duration-500 cursor-pointer">
+                    <div class="mb-12 flex justify-between items-start">
+                        <span class="text-xs font-mono text-white/20 group-hover:text-brand-black/40 transition-colors">Sector // 0{{ $loop->iteration }}</span>
+                        <svg class="w-6 h-6 text-brand-yellow group-hover:text-brand-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 group-hover:text-brand-black transition-colors uppercase tracking-tighter">{{ $div[0] }}</h4>
+                    <p class="text-sm text-white/40 group-hover:text-brand-black/60 transition-colors leading-relaxed">{{ $div[1] }}</p>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 004 — WHY AXION (INDUSTRIAL FOCUS) ===================== --}}
+    <section class="py-24 lg:py-40 relative">
+        <div class="container mx-auto px-8 lg:px-16 text-center">
+            <h2 class="text-5xl lg:text-8xl font-bold tracking-tighter mb-20">
+                Because <span class="text-brand-yellow italic">Ambition</span> Should<br/>
+                Drive <span class="text-white/20">Results.</span>
+            </h2>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                @foreach(['Every Industry', 'Proven Execution', 'Trust', 'Built to Scale'] as $item)
+                <div class="p-8 border border-white/5 bg-white/[0.02]">
+                    <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-yellow mb-4">{{ $item }}</p>
+                    <div class="h-[1px] w-8 bg-white/20 mx-auto"></div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 005 — GLOBAL PARTNERSHIPS ===================== --}}
+    <section class="py-24 border-t border-white/5">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="flex flex-col lg:flex-row gap-20">
+                <div class="lg:w-1/3">
+                    <p class="text-brand-yellow text-[10px] font-bold uppercase tracking-[0.4em] mb-6">003 — Network</p>
+                    <h3 class="text-4xl font-bold mb-6 italic">What Our<br/>Partners Say</h3>
+                    <p class="text-white/40">Working with a global holding group that delivers across every industry.</p>
+                </div>
+                <div class="lg:w-2/3">
+                    <div class="p-12 bg-white/[0.03] border border-white/10 rounded-2xl">
+                        <p class="text-2xl text-white/80 italic leading-relaxed mb-10">
+                            “AXION is not just a partner — they are a complete ecosystem. From supply chain to technology, every division works in perfect alignment.”
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-yellow rounded-full"></div>
+                            <div>
+                                <p class="font-bold uppercase tracking-widest text-xs">Stacey Adams</p>
+                                <p class="text-[10px] text-white/20 uppercase tracking-widest">Operations Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ===================== 006 — CALL TO ACTION ===================== --}}
+    <section class="py-20 bg-brand-yellow">
+        <div class="container mx-auto px-8 lg:px-16 flex flex-col lg:flex-row justify-between items-center gap-8">
+            <h2 class="text-3xl lg:text-4xl font-black text-brand-black uppercase tracking-tighter">
+                Powerful platforms keep global markets moving.
+            </h2>
+            <a href="#" class="px-12 py-6 bg-brand-black text-white font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+
+    {{-- ===================== 007 — FOOTER ===================== --}}
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-8 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                <div>
+                    <h4 class="text-2xl font-black mb-6">AXION</h4>
+                    <p class="text-white/30 text-sm leading-relaxed">
+                        Connecting advanced technological solutions with international markets and industrial operations.
+                    </p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-white/20 mb-6">Company</p>
+                    <ul class="space-y-4 text-sm text-white/60">
+                        <li><a href="#" class="hover:text-brand-yellow">Home</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow">Global Partnerships</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-white/20 mb-6">Divisions</p>
+                    <ul class="space-y-4 text-sm text-white/60">
+                        <li><a href="#" class="hover:text-brand-yellow">Agriculture</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow">AI & Tech</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow">Logistics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-white/20 mb-6">Contact</p>
+                    <p class="text-sm text-white/60 mb-2">support@axion.com</p>
+                    <p class="text-sm text-white/60">+1 123 456 7890</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5">
+                <p class="text-[10px] text-white/20 uppercase tracking-[0.2em]">© 2026 AXION HOLDING GROUP. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-6">
+                    {{-- Social links --}}
+                    <span class="text-[10px] text-white/20 uppercase tracking-widest hover:text-brand-yellow cursor-pointer transition-colors">Linkedin</span>
+                    <span class="text-[10px] text-white/20 uppercase tracking-widest hover:text-brand-yellow cursor-pointer transition-colors">Instagram</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
