@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 
@@ -15,7 +16,7 @@ use Spatie\Sluggable\SlugOptions;
 class Business extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\BusinessFactory> */
-    use HasFactory , InteractsWithMedia;
+    use HasFactory , InteractsWithMedia , HasSlug;
 
     public function getSlugOptions(): SlugOptions
     {
