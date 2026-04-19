@@ -1,6 +1,7 @@
 import gsap from 'gsap';
-
-document.addEventListener('DOMContentLoaded', () => {
+import Lenis from 'lenis';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+document.addEventListener('livewire:navigating', () => {
     // Entrance: entire nav slides down
     gsap.from('#site-nav-wrapper', {
         y: -60,
@@ -38,3 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.85,
     });
 });
+
+
+
+document.addEventListener('livewire:navigated', () => {
+    lenis.scrollTo(0, { immediate: true });
+    lenis.start();
+    resetRevealElements();
+    bootPageAnimations();
+});
+
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+});
+
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add(time => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
