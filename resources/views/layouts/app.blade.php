@@ -16,9 +16,8 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="bg-brand-black text-brand-white font-poppins">
     {{ $slot }}
-
     @livewireScripts
 </body>
 
