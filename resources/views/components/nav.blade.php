@@ -31,7 +31,7 @@
                 : 'max-w-none h-16 bg-brand-black/80 backdrop-blur-md border-b border-white/[0.05]'"
         >
             {{-- Logo --}}
-            <a href="{{ route('home') }}" class="group flex shrink-0 items-center gap-2.5" id="nav-logo">
+            <a href="{{ route('home') }}" wire:navigate class="group flex shrink-0 items-center gap-2.5" id="nav-logo">
                 <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-yellow font-black text-brand-black text-sm leading-none select-none">
                     ⚡
                 </div>
@@ -43,13 +43,14 @@
             {{-- Desktop links --}}
             <nav class="hidden md:flex items-center gap-0" aria-label="Primary" id="nav-links">
                 @foreach([
-                    ['Features', '#features'],
-                    ['Work',     '#work'],
-                    ['Pricing',  '#pricing'],
-                    ['About',    '#about'],
+                    ['Home', route('home')],
+                    ['Global Partnerships', route('global-partnerships')],
+                    ['About Us', route('about-us')],
+                    ['Contact Us', route('contact-us')],
                 ] as [$label, $href])
                 <a
                     href="{{ $href }}"
+                    wire:navigate
                     class="nav-link group relative px-4 py-2 text-[13px] font-medium text-white/55 hover:text-white transition-colors duration-200"
                 >
                     {{ $label }}
@@ -64,7 +65,8 @@
                     Sign In
                 </a>
                 <a
-                    href="#"
+                    href="{{ route('contact-us') }}"
+                    wire:navigate
                     id="nav-cta-btn"
                     class="group inline-flex items-center gap-1.5 rounded-xl bg-brand-yellow px-5 py-2.5 text-[13px] font-semibold text-brand-black hover:brightness-105 active:scale-95 transition-all duration-200"
                 >
@@ -97,7 +99,7 @@
             </button>
         </header>
 
-        {{-- Mobile dropdown (absolute to the positioner div) --}}
+        {{-- Mobile dropdown --}}
         <div
             x-show="open"
             x-cloak
@@ -113,13 +115,14 @@
         >
             <div class="p-3">
                 @foreach([
-                    ['Features', '#features', 'What we offer'],
-                    ['Work',     '#work',     'Our portfolio'],
-                    ['Pricing',  '#pricing',  'Plans & pricing'],
-                    ['About',    '#about',    'Our story'],
+                    ['Home', route('home'), 'Back to start'],
+                    ['Global Partnerships', route('global-partnerships'), 'Our world network'],
+                    ['About Us', route('about-us'), 'Our story'],
+                    ['Contact Us', route('contact-us'), 'Get in touch'],
                 ] as [$label, $href, $desc])
                 <a
                     href="{{ $href }}"
+                    wire:navigate
                     @click="open = false"
                     class="group flex items-center justify-between rounded-xl px-4 py-3.5 hover:bg-white/[0.04] transition-colors duration-150"
                 >
@@ -139,7 +142,7 @@
                     <a href="#" class="flex items-center justify-center rounded-xl border border-white/10 py-3 text-sm text-white/55 hover:text-white hover:border-white/20 transition-all duration-200">
                         Sign In
                     </a>
-                    <a href="#" class="flex items-center justify-center rounded-xl bg-brand-yellow py-3 text-sm font-semibold text-brand-black hover:brightness-105 transition-all duration-200">
+                    <a href="{{ route('contact-us') }}" wire:navigate class="flex items-center justify-center rounded-xl bg-brand-yellow py-3 text-sm font-semibold text-brand-black hover:brightness-105 transition-all duration-200">
                         Get Started
                     </a>
                 </div>
