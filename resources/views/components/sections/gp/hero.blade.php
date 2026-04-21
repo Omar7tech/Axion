@@ -1,27 +1,3 @@
-<style>
-    @keyframes orbit-slow {
-        0% { transform: translate(0, 0) scale(1); }
-        50% { transform: translate(100px, 50px) scale(1.1); }
-        100% { transform: translate(0, 0) scale(1); }
-    }
-    @keyframes orbit-reverse {
-        0% { transform: translate(0, 0) scale(1); }
-        50% { transform: translate(-80px, -40px) scale(1.2); }
-        100% { transform: translate(0, 0) scale(1); }
-    }
-    .animate-orbit-slow { animation: orbit-slow 20s ease-in-out infinite; }
-    .animate-orbit-reverse { animation: orbit-reverse 25s ease-in-out infinite; }
-    .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden border-b border-white/5 bg-black">
 
     <div class="absolute inset-0 z-0 pointer-events-none opacity-40" id="parallax-bg">
