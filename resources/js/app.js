@@ -166,46 +166,4 @@ document.addEventListener('livewire:navigating', () => {
     }
 });
 
-document.addEventListener('livewire:navigated', () => {
-    
-const menu = document.getElementById('dropdown-menu');
-const arrow = document.getElementById('arrow-icon');
-const container = document.getElementById('custom-select-container');
-
-function toggleDropdown(event) {
-    event.stopPropagation();
-    const isOpen = !menu.classList.contains('opacity-0');
-    
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    }
-
-    function openMenu() {
-        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-        menu.classList.add('opacity-100', 'scale-100');
-        arrow.classList.add('rotate-180');
-    }
-
-    function closeMenu() {
-        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-        menu.classList.remove('opacity-100', 'scale-100');
-        arrow.classList.remove('rotate-180');
-    }
-
-    function selectOpt(val) {
-        document.getElementById('selected-option').innerText = val;
-        closeMenu();
-    }
-
-    window.addEventListener('click', (e) => {
-        if (!container.contains(e.target)) {
-            closeMenu();
-        }
-    });
-});
-
-
 
