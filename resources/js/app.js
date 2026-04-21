@@ -83,37 +83,19 @@ function initBrainTrust() {
 
     brainTrustSwiper = new Swiper('.brain-trust-swiper', {
         modules: [Autoplay, Navigation],
-        slidesPerView: 1.2,
+        slidesPerView: 1,
         spaceBetween: 16,
         loop: false,
         grabCursor: true,
         preventClicks: false,
         preventClicksPropagation: false,
-        resistanceRatio: 0.85,
-        speed: 500,
-        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        autoplay: { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
         navigation: { prevEl: '#bt-prev', nextEl: '#bt-next' },
+        slidesOffsetBefore: offset,
+        slidesOffsetAfter: offset,
         breakpoints: {
-            480: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-            },
-            768: {
-                slidesPerView: 2.5,
-                spaceBetween: 28,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 32,
-            },
-            1280: {
-                slidesPerView: 4,
-                spaceBetween: 32,
-            },
+            640: { slidesPerView: 1.2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
         },
         on: {
             slideChange(swiper) {
@@ -161,6 +143,16 @@ document.addEventListener('livewire:navigated', () => {
         height: '3px',
         position: 'top'
     });
+});
+
+document.addEventListener('livewire:navigating', () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    lenis.stop();
+
+    if (testimonialsSwiper) {
+        testimonialsSwiper.destroy(true, true);
+        testimonialsSwiper = null;
+    }
 });
 
 
