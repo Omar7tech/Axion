@@ -90,7 +90,7 @@ document.addEventListener('livewire:navigated', () => {
 
     ScrollProgress.init({
         color: '#E6B12E',
-        height: '4px',
+        height: '3px',
         position: 'top'
     });
 });
