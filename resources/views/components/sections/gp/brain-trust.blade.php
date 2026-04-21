@@ -1,27 +1,50 @@
-<section class="py-32 bg-black border-t border-white/5 overflow-hidden">
-    <div class="container mx-auto px-6 lg:px-20 mb-16 flex justify-between items-end">
-        <h2 class="text-6xl font-black uppercase tracking-tighter">The Brain <span class="text-brand-yellow italic">Trust.</span></h2>
-        <div class="hidden md:block h-px flex-1 mx-20 bg-white/10"></div>
-        <p class="text-[10px] font-black text-white/30 uppercase tracking-[0.4em]">Section: Leaders</p>
+<section class="py-20 bg-[#050505] border-t border-white/5 overflow-x-scroll">
+    <div class="container mx-auto px-6 lg:px-20 mb-12">
+        <div class="max-w-2xl">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
+                Our <span class="italic font-serif text-brand-yellow">Collective.</span>
+            </h2>
+            <p class="text-sm text-white/40 tracking-wide uppercase">The people behind the vision.</p>
+        </div>
     </div>
 
-    <div class="flex overflow-x-auto no-scrollbar gap-px bg-white/10 px-6 lg:px-20 border-y border-white/10">
+    <div class="flex overflow-x-auto no-scrollbar gap-6 px-6 lg:px-20 pb-10 snap-x snap-mandatory scroll-smooth">
         @php
+            // Simulated dynamic list of 10 members
             $team = [
-                ['Michael Harrington', 'CEO', '801'],
-                ['Daniel Whitmore', 'COO', '802'],
-                ['Sarah Mitchell', 'QA Lead', '803'],
-                ['Personnel_ID', 'Reserved', '804']
+                ['name' => 'Michael Harrington', 'role' => 'Founder'],
+                ['name' => 'Daniel Whitmore', 'role' => 'Operations'],
+                ['name' => 'Sarah Mitchell', 'role' => 'Design'],
+                ['name' => 'Alex Reed', 'role' => 'Development'],
+                ['name' => 'Elena Rossi', 'role' => 'Marketing'],
+                ['name' => 'Julian Banks', 'role' => 'Strategy'],
+                ['name' => 'Sophia Chen', 'role' => 'Product'],
+                ['name' => 'Marcus Thorne', 'role' => 'Finance'],
+                ['name' => 'Isabella Hart', 'role' => 'Relations'],
+                ['name' => 'Personnel_ID', 'role' => 'Open Position'],
             ];
         @endphp
 
-        @foreach($team as $m)
-        <div class="min-w-[400px] group relative bg-black aspect-[3/4] overflow-hidden flex-1 hover:flex-[1.5] transition-all duration-[1s]">
-            <img src="https://picsum.photos/800/1000?grayscale&random={{ $m[2] }}" class="w-full h-full object-cover opacity-20 blur-sm group-hover:opacity-100 group-hover:blur-none group-hover:scale-105 transition-all duration-[1s]">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-            <div class="absolute bottom-10 left-10">
-                <p class="text-brand-yellow text-[9px] font-black uppercase tracking-[0.4em] mb-2">{{ $m[1] }}</p>
-                <h4 class="text-3xl font-black uppercase tracking-tighter text-white">{{ $m[0] }}</h4>
+        @foreach($team as $index => $member)
+        <div class="snap-center min-w-[75vw] md:min-w-[380px] group relative bg-[#0a0a0a] aspect-[4/5] overflow-hidden rounded-lg transition-all duration-500 border border-white/5 hover:border-white/20">
+            
+            <img 
+                src="https://picsum.photos/800/1000?grayscale&random={{ $index }}" 
+                alt="{{ $member['name'] }}"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
+            >
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 w-full p-8 md:p-10">
+                <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-widest mb-2 block">
+                    {{ $member['role'] }}
+                </span>
+                <h4 class="text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
+                    {{ $member['name'] }}
+                </h4>
+                
+                <div class="w-0 group-hover:w-12 h-[1px] bg-white/30 mt-6 transition-all duration-500"></div>
             </div>
         </div>
         @endforeach
