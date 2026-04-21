@@ -78,9 +78,6 @@ function initBrainTrust() {
     const progress = document.getElementById('bt-progress');
     const total = document.querySelectorAll('.brain-trust-swiper .swiper-slide').length;
 
-    // Offset aligns first slide with the page container edge — only on tablet+
-    const offset = Math.max(24, (window.innerWidth - 1280) / 2 + 32);
-
     brainTrustSwiper = new Swiper('.brain-trust-swiper', {
         modules: [Autoplay, Navigation],
         slidesPerView: 1,
@@ -91,11 +88,25 @@ function initBrainTrust() {
         preventClicksPropagation: false,
         autoplay: { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
         navigation: { prevEl: '#bt-prev', nextEl: '#bt-next' },
-        slidesOffsetBefore: offset,
-        slidesOffsetAfter: offset,
         breakpoints: {
-            640: { slidesPerView: 1.2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 24 },
+            640: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+                slidesOffsetBefore: 24,
+                slidesOffsetAfter: 24,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+                slidesOffsetBefore: 64,
+                slidesOffsetAfter: 64,
+            },
+            1280: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+                slidesOffsetBefore: Math.max(24, (window.innerWidth - 1280) / 2 + 32),
+                slidesOffsetAfter: Math.max(24, (window.innerWidth - 1280) / 2 + 32),
+            },
         },
         on: {
             slideChange(swiper) {
@@ -149,9 +160,9 @@ document.addEventListener('livewire:navigating', () => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     lenis.stop();
 
-    if (testimonialsSwiper) {
-        testimonialsSwiper.destroy(true, true);
-        testimonialsSwiper = null;
+    if (brainTrustSwiper) {
+        brainTrustSwiper.destroy(true, true);
+        brainTrustSwiper = null;
     }
 });
 

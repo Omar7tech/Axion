@@ -53,7 +53,7 @@
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
                         >
                         
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent"></div>
+                        <div class="absolute inset-0 bg-linear-to-t from-black/95 via-black/30 to-transparent"></div>
                         
                         <div class="absolute bottom-0 left-0 w-full p-6 md:p-8">
                             <span class="text-brand-yellow text-[10px] font-bold uppercase tracking-widest mb-2 block">
