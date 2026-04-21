@@ -84,20 +84,34 @@ function initBrainTrust() {
     brainTrustSwiper = new Swiper('.brain-trust-swiper', {
         modules: [Autoplay, Navigation],
         slidesPerView: 1.2,
-        spaceBetween: 24,
+        spaceBetween: 16,
         loop: false,
         grabCursor: true,
         preventClicks: false,
         preventClicksPropagation: false,
-        autoplay: { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        resistanceRatio: 0.85,
+        speed: 500,
+        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
         navigation: { prevEl: '#bt-prev', nextEl: '#bt-next' },
         breakpoints: {
+            480: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+            },
             640: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+            },
+            768: {
                 slidesPerView: 2.5,
-                spaceBetween: 32,
+                spaceBetween: 28,
             },
             1024: {
-                slidesPerView: 3.5,
+                slidesPerView: 3,
+                spaceBetween: 32,
+            },
+            1280: {
+                slidesPerView: 4,
                 spaceBetween: 32,
             },
         },
