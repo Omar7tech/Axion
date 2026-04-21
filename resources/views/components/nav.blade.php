@@ -27,8 +27,8 @@
             id="site-nav"
             class="flex w-full items-center justify-between px-6 transition-all duration-500 ease-out"
             :class="scrolled
-                ? 'max-w-4xl h-14 rounded-2xl border border-white/10 bg-brand-second-black/90 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
-                : 'max-w-none h-16 bg-brand-black/80 backdrop-blur-md border-b border-white/[0.05]'"
+                ? 'max-w-4xl h-14 rounded-2xl border border-white/10 bg-brand-second-black/70 backdrop-blur-sm shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
+                : 'max-w-none h-16 bg-brand-black/80 backdrop-blur-md border-b border-white/5'"
         >
             {{-- Logo --}}
             <a href="{{ route('home') }}" wire:navigate  id="nav-logo">
@@ -46,7 +46,7 @@
                 <a
                     href="{{ $href }}"
                     wire:navigate
-                    class="nav-link group relative px-4 py-2 text-[13px] font-medium text-white/55 hover:text-white transition-colors duration-200"
+                    class="nav-link group relative px-4 py-2 text-[15px] font-medium text-white/55 hover:text-white transition-colors duration-200"
                 >
                     {{ $label }}
                     <span class="absolute inset-x-4 bottom-0.5 h-px bg-brand-yellow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
@@ -116,7 +116,7 @@
                     href="{{ $href }}"
                     wire:navigate
                     @click="open = false"
-                    class="group flex items-center justify-between rounded-xl px-4 py-3.5 hover:bg-white/[0.04] transition-colors duration-150"
+                    class="group flex items-center justify-between rounded-xl px-4 py-3.5 hover:bg-white/4 transition-colors duration-150"
                 >
                     <div>
                         <div class="text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-150">{{ $label }}</div>

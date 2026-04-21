@@ -92,19 +92,19 @@ function initBrainTrust() {
             640: {
                 slidesPerView: 1.2,
                 spaceBetween: 20,
-                slidesOffsetBefore: 24,
+                slidesOffsetBefore: 0,
                 slidesOffsetAfter: 24,
             },
             1024: {
                 slidesPerView: 3,
                 spaceBetween: 24,
-                slidesOffsetBefore: 64,
-                slidesOffsetAfter: 64,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 32,
             },
             1280: {
                 slidesPerView: 3,
                 spaceBetween: 24,
-                slidesOffsetBefore: Math.max(24, (window.innerWidth - 1280) / 2 + 32),
+                slidesOffsetBefore: 0,
                 slidesOffsetAfter: Math.max(24, (window.innerWidth - 1280) / 2 + 32),
             },
         },
