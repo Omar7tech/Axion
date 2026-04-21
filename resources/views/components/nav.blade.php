@@ -15,7 +15,7 @@
     class="fixed inset-x-0 top-0 z-50"
 >
     {{-- Brand accent line --}}
-    <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-yellow to-transparent opacity-50"></div>
+    <div class="h-[2px] w-full bg-linear-to-r from-transparent via-brand-yellow to-transparent opacity-50"></div>
 
     {{-- Nav positioner: shrinks + adds padding on scroll --}}
     <div
@@ -27,17 +27,12 @@
             id="site-nav"
             class="flex w-full items-center justify-between px-6 transition-all duration-500 ease-out"
             :class="scrolled
-                ? 'max-w-4xl h-14 rounded-2xl border border-white/10 bg-[#111111]/90 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
+                ? 'max-w-4xl h-14 rounded-2xl border border-white/10 bg-brand-second-black/90 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
                 : 'max-w-none h-16 bg-brand-black/80 backdrop-blur-md border-b border-white/[0.05]'"
         >
             {{-- Logo --}}
-            <a href="{{ route('home') }}" wire:navigate class="group flex shrink-0 items-center gap-2.5" id="nav-logo">
-                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-yellow font-black text-brand-black text-sm leading-none select-none">
-                    ⚡
-                </div>
-                <span class="font-bold tracking-[0.18em] text-brand-white uppercase text-[15px] group-hover:text-brand-yellow transition-colors duration-300">
-                    Axion
-                </span>
+            <a href="{{ route('home') }}" wire:navigate  id="nav-logo">
+                <img src="{{ asset('icons/axion2.png') }}"  class="h-8 bg-cover w-full " alt="Axion Logo">
             </a>
 
             {{-- Desktop links --}}
@@ -61,16 +56,13 @@
 
             {{-- Desktop CTA --}}
             <div class="hidden md:flex items-center gap-5" id="nav-cta">
-                <a href="#" class="text-[13px] text-white/40 hover:text-white/80 transition-colors duration-200">
-                    Sign In
-                </a>
                 <a
                     href="{{ route('contact-us') }}"
                     wire:navigate
                     id="nav-cta-btn"
                     class="group inline-flex items-center gap-1.5 rounded-xl bg-brand-yellow px-5 py-2.5 text-[13px] font-semibold text-brand-black hover:brightness-105 active:scale-95 transition-all duration-200"
                 >
-                    Get Started
+                    Get A Quote
                     <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                     </svg>
