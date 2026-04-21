@@ -18,7 +18,8 @@
 
 
 
-<body class="bg-brand-black text-brand-white font-poppins">
+<body
+    class="bg-brand-black text-brand-white font-poppins  selection:bg-brand-yellow selection:text-black overflow-x-hidden">
     <x-nav />
 
     <main class="pt-[66px]">
