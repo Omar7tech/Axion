@@ -57,8 +57,8 @@
 
                     <h1 class="main-title group cursor-default text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
                         <span class="inline-block transition-transform duration-500 group-hover:translate-x-2">AXION</span><br />
-                        <span class="stroke-text inline-block text-transparent transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(230,177,46,0.4)]" 
-                              style="-webkit-text-stroke: 1.5px rgba(230,177,46,0.8);">Holding Group</span>
+                        <span class="text-5xl md:text-6xl lg:text-7xl stroke-text inline-block text-transparent transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(230,177,46,0.4)]" 
+                              style="-webkit-text-stroke: 1.5px rgba(230,177,46,0.8);">International <br/> Group</span>
                     </h1>
 
                     <div class="flex items-center gap-6 group cursor-default">

@@ -53,7 +53,7 @@
 
         <div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t-2 border-white/10 gap-8">
             <p class="text-sm font-black text-white uppercase tracking-[0.4em]">
-                © 2026 AXION HOLDING GROUP — ALL RIGHTS RESERVED
+                © 2026 AXION International GROUP — ALL RIGHTS RESERVED
             </p>
             
             <div class="flex gap-12 text-sm font-black text-white uppercase tracking-[0.2em]">
