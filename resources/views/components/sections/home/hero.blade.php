@@ -1,6 +1,12 @@
 {{-- ===================== 01. THE NEXUS HERO (COMPACT) ===================== --}}
 <section class="relative min-h-[90vh] flex items-center px-6 lg:px-20 py-10 overflow-hidden">
 
+    {{-- Grid Pattern --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.02]" style="background-size: 80px 80px; background-image: linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px);"></div>
+
+    {{-- Radial Gradient Overlay --}}
+    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(230,177,46,0.03),transparent_50%)]"></div>
+
     {{-- Background Glow --}}
     <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-yellow/5 blur-[100px] rounded-full -mr-48 -mt-48"></div>
 
