@@ -120,8 +120,8 @@
                     © 2026 AXION HOLDING GROUP — ALL RIGHTS RESERVED
                 </p>
                 <div class="flex gap-8 text-[8px] font-bold text-white/20 uppercase tracking-[0.2em]">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="{{ route('privacy-policy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="{{ route('terms-and-conditions') }}" class="hover:text-white transition-colors">Terms of Service</a>
                     <span class="text-brand-yellow/40">Powered By Webtimize Local</span>
                 </div>
             </div>
