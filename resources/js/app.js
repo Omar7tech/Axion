@@ -61,7 +61,7 @@ gsap.ticker.add(time => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('livewire:navigated', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Parallax for Background (Moves slowly up)
@@ -86,6 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         y: -80,
         opacity: 0
+    });
+
+    ScrollProgress.init({
+        color: '#E6B12E',
+        height: '4px',
+        position: 'top'
     });
 });
 

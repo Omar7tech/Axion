@@ -128,6 +128,7 @@
         </div>
     </footer>
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/gh/SH20RAJ/ScrollProgressJS@main/ScrollProgress.js"></script>
 </body>
 
 </html>
