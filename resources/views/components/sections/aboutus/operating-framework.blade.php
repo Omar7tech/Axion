@@ -1,16 +1,12 @@
 <section class="py-32 relative bg-[#030303] overflow-hidden">
     {{-- High-End Ambient Background --}}
     <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-yellow/5 blur-[150px] rounded-full opacity-50"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/[0.02] blur-[100px] rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/2 blur-[100px] rounded-full"></div>
 
     <div class="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10">
         {{-- Header with Technical Coordinates --}}
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-2 py-1 bg-brand-yellow text-black text-[8px] font-black uppercase tracking-widest leading-none">Status: Optimized</span>
-                    <span class="text-[9px] font-black uppercase tracking-[0.5em] text-white/30">Protocol v.2.0</span>
-                </div>
                 <h2 class="text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85]">
                     Operating <br/> <span class="text-brand-yellow italic">Framework.</span>
                 </h2>

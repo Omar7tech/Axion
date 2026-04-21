@@ -39,10 +39,6 @@
     </div>
 
     <div class="absolute bottom-10 w-full px-6 lg:px-20 flex justify-between items-end z-30 pointer-events-none">
-        <div class="flex flex-col gap-1">
-            <span class="text-[8px] font-mono text-white/20 uppercase tracking-widest">Protocol: AXN-G01</span>
-            <span class="text-[8px] font-mono text-white/20 uppercase tracking-widest">Sector: Strategic_Alliances</span>
-        </div>
         <div class="h-24 w-[1px] bg-gradient-to-t from-brand-yellow to-transparent"></div>
     </div>
 </section>

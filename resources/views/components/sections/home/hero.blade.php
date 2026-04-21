@@ -9,11 +9,6 @@
 
             {{-- Left: Content --}}
             <div class="lg:col-span-6 space-y-6 md:space-y-8">
-                <div class="inline-flex items-center gap-3">
-                    <span class="w-2 h-2 bg-brand-yellow rounded-full animate-pulse"></span>
-                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-white/40">Award-winning firm</span>
-                </div>
-
                 <div class="space-y-3">
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.9]">
                         AXION<br/><span class="text-brand-yellow">Holding Group</span>
