@@ -35,14 +35,6 @@
     </div>
 
     <div class="container mx-auto max-w-7xl relative z-20 px-6 text-center" id="parallax-content">
-        <div class="inline-flex items-center gap-4 mb-12 px-4 py-2 bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-full">
-            <div class="flex gap-1">
-                <span class="w-1.5 h-1.5 bg-brand-yellow rounded-full animate-ping"></span>
-                <span class="w-1.5 h-1.5 bg-brand-yellow/50 rounded-full"></span>
-            </div>
-            <span class="text-[8px] font-black uppercase tracking-[0.8em] text-brand-yellow">System: Active</span>
-        </div>
-
         <h1 class="relative text-[13vw] lg:text-[10vw] font-black uppercase tracking-tighter leading-[0.8] mb-8">
             <span class="block mix-blend-difference">Global</span>
             <span class="block text-transparent stroke-brand-yellow italic" style="-webkit-text-stroke: 1.5px #ffcc00;">Partnership.</span>
