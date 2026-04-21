@@ -17,3 +17,10 @@
 
 [x-cloak] { display: none !important; }
 
+input::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    line-height: 1.6;
+}
