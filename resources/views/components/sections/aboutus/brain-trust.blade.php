@@ -4,8 +4,7 @@
         {{-- Compact Header --}}
         <div class="flex items-center gap-6 mb-12">
             <h2 class="text-3xl font-black uppercase tracking-tighter text-white">The Brain <span class="text-brand-yellow italic">Trust.</span></h2>
-            <div class="h-px flex-1 bg-gradient-to-r from-brand-yellow/50 to-transparent"></div>
-            <span class="text-[9px] font-mono text-white/20 uppercase tracking-[0.4em]">Unit: Executive_Core</span>
+            <div class="h-px flex-1 bg-linear-to-r from-brand-yellow/50 to-transparent"></div>
         </div>
 
         {{-- The Kinetic Strip --}}

@@ -11,14 +11,8 @@
                     Operating <br/> <span class="text-brand-yellow italic">Framework.</span>
                 </h2>
             </div>
-            <div class="hidden lg:block text-right">
-                <p class="text-[9px] font-black text-white/20 uppercase tracking-[0.4em] leading-loose">
-                    Ref: AXN-099 // Global Standard <br/> Established 2026_LEB
-                </p>
-            </div>
         </div>
 
-        {{-- The "Nuclear" Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             @php
                 $nuclear_values = [
