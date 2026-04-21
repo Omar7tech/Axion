@@ -1,6 +1,6 @@
 <div class="bg-brand-black text-white font-sans selection:bg-brand-yellow selection:text-brand-black">
-    <x-sections.hero />
-    <x-sections.consistency-manifesto />
-    <x-sections.core-divisions />
-    <x-sections.partnerships />
+    <x-sections.home.hero />
+    <x-sections.home.consistency-manifesto />
+    <x-sections.home.core-divisions />
+    <x-sections.home.partnerships />
 </div>

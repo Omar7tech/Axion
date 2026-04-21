@@ -1,0 +1,49 @@
+<section class="py-24 px-6 lg:px-20 bg-[#050505]">
+    <div class="container mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+            <div class="lg:col-span-8 group relative bg-[#080808] border border-white/5 p-12 overflow-hidden transition-all duration-700 hover:border-brand-yellow/50">
+                <div class="relative z-10 flex flex-col h-full justify-between min-h-[400px]">
+                    <div>
+                        <span class="text-[9px] font-black text-brand-yellow uppercase tracking-widest">Division: Supply_Chain</span>
+                        <h3 class="text-5xl font-black uppercase tracking-tighter mt-4 max-w-md">Strategic Supplier Partnerships</h3>
+                    </div>
+                    <p class="text-sm text-white/40 uppercase tracking-tight max-w-lg leading-loose group-hover:text-white transition-colors">
+                        AXION builds strong relationships with trusted suppliers to ensure consistent access to high-quality materials and equipment.
+                    </p>
+                </div>
+                <div class="absolute -right-10 -bottom-10 text-[180px] font-black text-white/[0.02] select-none group-hover:text-brand-yellow/[0.03] transition-all">01</div>
+            </div>
+
+            <div class="lg:col-span-4 bg-brand-yellow p-12 flex flex-col justify-between text-black relative group overflow-hidden">
+                <h3 class="text-2xl font-black uppercase tracking-tighter relative z-10">Manufacturing Collaborations</h3>
+                <p class="text-[11px] font-bold uppercase leading-relaxed mb-8 relative z-10">
+                    Selected manufacturing partners to maintain strict quality control and production standards.
+                </p>
+                <div class="text-9xl font-black tracking-tighter opacity-10 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform">02</div>
+            </div>
+
+            @php
+                $nodes = [
+                    ['Logistics & Distribution Alliances', 'These alliances improve supply chain efficiency, reduce delays, and maintain stability.', '03'],
+                    ['Technology & Innovation Partnerships', 'Collaborate with technology partners to enhance innovation and process optimization.', '04']
+                ];
+            @endphp
+
+            @foreach($nodes as $node)
+            <div class="lg:col-span-6 group relative border border-white/5 p-12 flex flex-col gap-8 hover:bg-white/[0.02] transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-3xl font-black uppercase tracking-tighter">{{ $node[0] }}</h3>
+                    <div class="text-[10px] font-mono text-white/20 group-hover:text-brand-yellow transition-colors">{{ $node[2] }}</div>
+                </div>
+                <p class="text-xs text-white/40 uppercase tracking-widest leading-relaxed">
+                    {{ $node[1] }}
+                </p>
+                <div class="mt-auto h-px w-full bg-white/5 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-yellow -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
