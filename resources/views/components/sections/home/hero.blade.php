@@ -90,7 +90,7 @@
                         <div class="absolute inset-0 bg-black translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]"></div>
                         <div class="btn-content relative z-10 flex items-center justify-between h-full px-8 pointer-events-none">
                             <span class="text-[14px] font-black uppercase tracking-[0.25em] text-black group-hover:text-brand-yellow transition-colors duration-300">
-                                Schedule Now
+                                Get A Quote
                             </span>
                             <div class="flex flex-col gap-[3px]">
                                 <div class="w-4 h-[2px] bg-black group-hover:bg-brand-yellow transition-all"></div>
@@ -107,7 +107,7 @@
                         <div class="absolute inset-0 bg-white/[0.03] backdrop-blur-xl group-hover:bg-brand-yellow/[0.03] transition-all"></div>
                         <div class="btn-content relative z-10 flex items-center justify-center h-full px-6 pointer-events-none">
                             <span class="text-[14px] font-black uppercase tracking-[0.25em] text-white/50 group-hover:text-white transition-colors">
-                                Our Divisions
+                                Our Businesses
                             </span>
                         </div>
                     </button>

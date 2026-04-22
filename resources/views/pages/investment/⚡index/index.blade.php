@@ -19,11 +19,25 @@
         </div>
     </section>
 
+    {{-- ACTIVE INVESTMENTS --}}
+    <section class="py-16 px-6 lg:px-20 border-t border-white/5 bg-[#020202]">
+        <div class="container mx-auto max-w-7xl">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">
+                    Active <span class="text-brand-yellow">Investment Opportunities</span>
+                </h2>
+                <p class="text-white/50 text-sm uppercase tracking-wider">Explore our current portfolio of strategic investments</p>
+            </div>
+
+            <livewire:investment-list />
+        </div>
+    </section>
+
     {{-- INVESTMENT CONTENT --}}
     <section class="py-16 px-6 lg:px-20 border-t border-white/5 bg-[#020202]">
         <div class="container mx-auto max-w-6xl">
             <div class="grid lg:grid-cols-12 gap-8 items-start">
-                
+
                 {{-- Left: The Value Proposition --}}
                 <div class="lg:col-span-5 space-y-6">
                     <div class="p-8 rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10">
@@ -62,7 +76,7 @@
                 <div class="lg:col-span-7">
                     <div class="prose prose-invert prose-sm md:prose-base max-w-none">
                         <h2 class="text-2xl font-black uppercase tracking-tight text-white mb-8">Why Invest in Our Ecosystem?</h2>
-                        
+
                         <p class="text-white/60 leading-relaxed mb-8">
                             We operate at the intersection of raw material supply, industrial manufacturing, and high-tech distribution. By verticalizing our operations, we eliminate middle-market friction and maximize margin retention across all divisions.
                         </p>
