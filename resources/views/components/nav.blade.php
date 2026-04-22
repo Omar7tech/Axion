@@ -124,6 +124,7 @@
                 </div>
 
                 @foreach([
+                    ['Investments', route('investments')],
                     ['Global Partnerships', route('global-partnerships')],
                     ['About Us', route('about-us')],
                     ['Contact Us', route('contact-us')],
@@ -258,6 +259,7 @@
                 </div>
 
                 @foreach([
+                    ['Investments', route('investments'), 'Explore opportunities'],
                     ['Global Partnerships', route('global-partnerships'), 'Our world network'],
                     ['About Us', route('about-us'), 'Our story'],
                     ['Contact Us', route('contact-us'), 'Get in touch'],
