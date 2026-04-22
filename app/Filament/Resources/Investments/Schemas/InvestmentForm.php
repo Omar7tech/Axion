@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Investments\Schemas;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class InvestmentForm
@@ -38,6 +39,11 @@ class InvestmentForm
                     ->placeholder('0.00')
                     ->minValue(0)
                     ->step(0.01),
+
+                Toggle::make('is_active')
+                    ->label('Active')
+                    ->helperText('Enable this investment to make it publicly visible')
+                    ->default(false),
 
                 SpatieMediaLibraryFileUpload::make('images')
                     ->collection('images')

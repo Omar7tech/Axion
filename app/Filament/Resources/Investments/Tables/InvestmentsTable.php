@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class InvestmentsTable
@@ -21,8 +22,7 @@ class InvestmentsTable
                     ->conversion('webp')
                     ->label('Cover')
                     ->circular()
-                    ->limit(1)
-                ,
+                    ->limit(1),
 
                 TextColumn::make('project_name')
                     ->label('Project Name')
@@ -34,9 +34,7 @@ class InvestmentsTable
                     ->label('Description')
                     ->searchable()
                     ->sortable()
-                    ->limit(50)
-                    ,
-
+                    ->limit(50),
 
                 TextColumn::make('investment_amount')
                     ->label('Investment')
@@ -44,6 +42,10 @@ class InvestmentsTable
                     ->sortable()
                     ->placeholder('Not set')
                     ->alignEnd(),
+
+                ToggleColumn::make('is_active')
+                    ->label('Active')
+                    ->sortable(),
 
                 TextColumn::make('created_at')
                     ->label('Created')
@@ -59,6 +61,8 @@ class InvestmentsTable
                     ->since()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('sort', 'asc')
+            ->reorderable('sort')
             ->defaultSort('created_at', 'desc')
             ->filters([
                 //
@@ -68,9 +72,7 @@ class InvestmentsTable
                 EditAction::make(),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+
             ]);
     }
 }

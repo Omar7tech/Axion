@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Investments\Schemas;
 
+use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
@@ -28,6 +29,14 @@ class InvestmentInfolist
                             ->label('Investment Amount')
                             ->money('USD')
                             ->placeholder('Not specified'),
+
+                        IconEntry::make('is_active')
+                            ->label('Status')
+                            ->boolean()
+                            ->trueIcon('heroicon-o-check-circle')
+                            ->falseIcon('heroicon-o-x-circle')
+                            ->trueColor('success')
+                            ->falseColor('danger'),
 
                         TextEntry::make('project_content')
                             ->label('Project Details')
