@@ -42,10 +42,14 @@ class InvestmentInfolist
                     ->schema([
                         SpatieMediaLibraryImageEntry::make('images')
                             ->collection('images')
+                            ->conversion('webp')
                             ->label('')
-                            ->size('lg')
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->grow(false)
+                            ->height(200)
+                            ->width(300),
                     ])
+                    ->columns(3)
                     ->columnSpanFull()
                     ->visible(fn ($record) => $record->hasMedia('images')),
 
