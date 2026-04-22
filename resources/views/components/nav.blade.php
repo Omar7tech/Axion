@@ -279,17 +279,6 @@
                     </svg>
                 </a>
                 @endforeach
-
-                <div class="mx-3 my-2 border-t border-white/[0.06]"></div>
-
-                <div class="grid grid-cols-2 gap-2 px-1 pb-1">
-                    <a href="#" class="flex items-center justify-center rounded-xl border border-white/10 py-3 text-sm text-white/55 hover:text-white hover:border-white/20 transition-all duration-200">
-                        Sign In
-                    </a>
-                    <a href="{{ route('contact-us') }}" wire:navigate class="flex items-center justify-center rounded-xl bg-brand-yellow py-3 text-sm font-semibold text-brand-black hover:brightness-105 transition-all duration-200">
-                        Get Started
-                    </a>
-                </div>
             </div>
         </div>
     </div>
