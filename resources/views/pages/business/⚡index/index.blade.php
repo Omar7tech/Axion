@@ -1,3 +1,3 @@
 <div>
-    @dd($businesses)
+    @dd($this->businesses)
 </div>
