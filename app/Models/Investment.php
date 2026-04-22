@@ -54,4 +54,16 @@ class Investment extends Model implements HasMedia
     {
         $query->where('is_active', true);
     }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope('sort', function (Builder $builder) {
+            $builder->orderBy('sort', 'asc');
+        });
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('is_active', true);
+        });
+    }
+
+
 }

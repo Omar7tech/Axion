@@ -59,5 +59,8 @@ class Business extends Model implements HasMedia
         static::addGlobalScope('sort', function (Builder $builder) {
             $builder->orderBy('sort', 'asc');
         });
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('is_active', true);
+        });
     }
 }
