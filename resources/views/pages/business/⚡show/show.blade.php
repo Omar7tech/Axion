@@ -1,4 +1,4 @@
 
 <div>
-    @dd($this->$business)
+    @dd($this->business)
 </div>
