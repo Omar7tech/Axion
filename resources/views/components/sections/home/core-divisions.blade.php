@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <livewire:business-list />
+        <livewire:business-list :limit="3" />
     </div>
 </section>
 @endif
