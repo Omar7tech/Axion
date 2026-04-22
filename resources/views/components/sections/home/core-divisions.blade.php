@@ -1,5 +1,5 @@
 @php
-    $hasBusinesses = \App\Models\Business::active()->published()->exists();
+    $hasBusinesses = \App\Models\Business::exists();
 @endphp
 
 @if($hasBusinesses)

@@ -11,6 +11,6 @@ new #[Title('Businesses')] class extends Component {
     #[Computed]
     public function businesses(): Collection
     {
-        return Business::published()->active()->get();
+        return Business::all();
     }
 };

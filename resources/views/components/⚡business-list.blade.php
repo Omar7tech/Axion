@@ -10,7 +10,7 @@ new class extends Component {
 
     public function with(): array
     {
-        $query = Business::active()->published();
+        $query = Business::query();
 
         if ($this->limit) {
             $query->limit($this->limit);
@@ -18,8 +18,8 @@ new class extends Component {
 
         return [
             'businesses' => $query->get(),
-            'totalCount' => Business::active()->published()->count(),
-            'hasMore' => $this->limit && Business::active()->published()->count() > $this->limit,
+            'totalCount' => Business::count(),
+            'hasMore' => $this->limit && Business::count() > $this->limit,
         ];
     }
 };
@@ -28,8 +28,11 @@ new class extends Component {
 <div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($businesses as $index => $business)
-            <a @if($business->link) target="_blank" @endif @if(!$business->link) wire:navigate @endif
-                href="{{ $business->link ?? route('business.show', $business) }}"
+            @php
+                $shouldUseExternalLink = $business->link && $business->is_published;
+            @endphp
+            <a @if($shouldUseExternalLink) target="_blank" @else wire:navigate @endif
+                href="{{ $shouldUseExternalLink ? $business->link : route('business.show', $business) }}"
                 class="relative min-h-[280px] p-8 border border-white/10 overflow-hidden group flex flex-col justify-between transition-all duration-500 hover:border-brand-yellow/60 cursor-pointer block">
 
                 {{-- Background Image with Overlay --}}
@@ -58,7 +61,7 @@ new class extends Component {
 
                 <div class="relative z-10 flex items-center justify-between mt-8">
                     <span
-                        class="text-[9px] font-black uppercase tracking-[0.2em] text-brand-yellow group-hover:translate-x-2 transition-transform">{{ $business->link ? 'Visit' : 'Show more' }}
+                        class="text-[9px] font-black uppercase tracking-[0.2em] text-brand-yellow group-hover:translate-x-2 transition-transform">{{ $shouldUseExternalLink ? 'Visit' : 'Show more' }}
                         —</span>
                     <div class="h-px grow ml-4 bg-white/10 group-hover:bg-brand-yellow/30 transition-colors"></div>
                 </div>

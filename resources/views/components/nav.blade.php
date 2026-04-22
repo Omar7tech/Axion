@@ -1,5 +1,5 @@
 @php
-    $navBusinesses = \App\Models\Business::active()->published()->limit(3)->get();
+    $navBusinesses = \App\Models\Business::limit(3)->get();
 @endphp
 
 <div
@@ -91,9 +91,12 @@
                     >
                         <div class="p-2 max-h-96 overflow-y-auto">
                             @forelse($navBusinesses as $business)
+                                @php
+                                    $useExternal = $business->is_published && $business->link;
+                                @endphp
                                 <a
-                                    href="{{ $business->link ?? route('business.show', $business) }}"
-                                    @if($business->link) target="_blank" @else wire:navigate @endif
+                                    href="{{ $useExternal ? $business->link : route('business.show', $business) }}"
+                                    @if($useExternal) target="_blank" @else wire:navigate @endif
                                     class="group flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-white/5 transition-colors duration-150"
                                 >
                                     <div class="flex-1 min-w-0">
@@ -230,9 +233,12 @@
                         class="pl-4 pr-2 pb-2 space-y-1"
                     >
                         @forelse($navBusinesses as $business)
+                            @php
+                                $useExternal = $business->is_published && $business->link;
+                            @endphp
                             <a
-                                href="{{ $business->link ?? route('business.show', $business) }}"
-                                @if($business->link) target="_blank" @else wire:navigate @endif
+                                href="{{ $useExternal ? $business->link : route('business.show', $business) }}"
+                                @if($useExternal) target="_blank" @else wire:navigate @endif
                                 @click="open = false; businessesMobileOpen = false"
                                 class="group flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-white/4 transition-colors duration-150"
                             >
