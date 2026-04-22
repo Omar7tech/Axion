@@ -21,12 +21,11 @@ class Investment extends Model implements HasMedia
     protected function casts(): array
     {
         return [
+            'is_active' => 'boolean',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
     }
-
-   
 
     public function getSlugOptions(): SlugOptions
     {
@@ -47,5 +46,4 @@ class Investment extends Model implements HasMedia
             ->quality(20)
             ->nonQueued();
     }
-    
 }
