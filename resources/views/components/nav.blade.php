@@ -1,3 +1,7 @@
+@php
+    $navBusinesses = \App\Models\Business::active()->published()->limit(3)->get();
+@endphp
+
 <div
     id="site-nav-wrapper"
     x-data="{
@@ -86,10 +90,6 @@
                         class="absolute left-0 mt-1 w-64 rounded-xl border border-white/10 bg-[#111111]/95 backdrop-blur-2xl shadow-[0_16px_48px_rgba(0,0,0,0.6)] overflow-hidden"
                     >
                         <div class="p-2 max-h-96 overflow-y-auto">
-                            @php
-                                $navBusinesses = \App\Models\Business::active()->published()->get();
-                            @endphp
-
                             @forelse($navBusinesses as $business)
                                 <a
                                     href="{{ $business->link ?? route('business.show', $business) }}"
@@ -228,11 +228,7 @@
                         x-collapse
                         class="pl-4 pr-2 pb-2 space-y-1"
                     >
-                        @php
-                            $mobileBusinesses = \App\Models\Business::active()->published()->get();
-                        @endphp
-
-                        @forelse($mobileBusinesses as $business)
+                        @forelse($navBusinesses as $business)
                             <a
                                 href="{{ $business->link ?? route('business.show', $business) }}"
                                 @if($business->link) target="_blank" @else wire:navigate @endif
