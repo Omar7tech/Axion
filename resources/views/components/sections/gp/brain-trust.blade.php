@@ -1,6 +1,6 @@
 <section class="py-20 bg-[#050505] border-t border-white/5">
     <div class="container mx-auto px-6 lg:px-20 mb-12">
-        <div class="flex items-center justify-between mb-8">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
             <div class="max-w-2xl">
                 <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
                     Brain Trust.
@@ -9,7 +9,7 @@
             </div>
 
             <!-- Navigation Buttons -->
-            <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center gap-2 shrink-0 md:ml-auto">
                 <button id="bt-prev" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 active:scale-95">
                     <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -24,8 +24,8 @@
         </div>
     </div>
 
-    <div class="px-6 lg:px-20">
-        <div class="swiper brain-trust-swiper w-full !overflow-visible pb-10">
+    <div class="relative overflow-hidden">
+        <div class="swiper brain-trust-swiper w-full pb-10">
             <div class="swiper-wrapper">
                 @php
                     // Simulated dynamic list of 10 members
@@ -45,7 +45,7 @@
 
                 @foreach($team as $index => $member)
                 <div class="swiper-slide">
-                    <div class="group relative bg-[#0a0a0a] aspect-[4/5] overflow-hidden rounded-xl transition-all duration-500 border border-white/5 hover:border-white/20 hover:shadow-2xl hover:shadow-brand-yellow/5">
+                    <div class="group relative bg-[#0a0a0a] aspect-square overflow-hidden rounded-xl transition-all duration-500 border border-white/5 hover:border-white/20 hover:shadow-2xl hover:shadow-brand-yellow/5">
                         
                         <img 
                             src="https://picsum.photos/800/1000?grayscale&random={{ $index }}" 

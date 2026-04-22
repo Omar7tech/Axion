@@ -1,7 +1,7 @@
 <section class="relative min-h-[70vh] flex items-end px-6 lg:px-20 pb-20">
     {{-- Background Image with Split Gradient --}}
     <div class="absolute inset-0 z-0">
-        <img src="https://picsum.photos/1920/1080?grayscale&random=101" class="w-full h-full object-cover">
+        <img src="{{ asset('covers/aboutus.png') }}" class="w-full h-full object-cover grayscale">
         {{-- Technical Grid Pattern --}}
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent"></div>

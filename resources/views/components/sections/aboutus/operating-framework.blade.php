@@ -7,7 +7,7 @@
         {{-- Header with Technical Coordinates --}}
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div class="space-y-4">
-                <h2 class="text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85]">
+                <h2 class="text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85]" id="operating-title">
                     Operating <br/> <span class="text-brand-yellow italic">Framework.</span>
                 </h2>
             </div>

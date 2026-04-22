@@ -80,32 +80,38 @@ function initBrainTrust() {
 
     brainTrustSwiper = new Swiper('.brain-trust-swiper', {
         modules: [Autoplay, Navigation],
-        slidesPerView: 1,
+        slidesPerView: 1.15,
         spaceBetween: 16,
+        centeredSlides: true,
         loop: false,
         grabCursor: true,
         preventClicks: false,
         preventClicksPropagation: false,
+        slidesOffsetBefore: 24,
+        slidesOffsetAfter: 24,
         autoplay: { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
         navigation: { prevEl: '#bt-prev', nextEl: '#bt-next' },
         breakpoints: {
             640: {
-                slidesPerView: 1.2,
+                slidesPerView: 2.2,
                 spaceBetween: 20,
-                slidesOffsetBefore: 0,
+                centeredSlides: false,
+                slidesOffsetBefore: 24,
                 slidesOffsetAfter: 24,
             },
             1024: {
                 slidesPerView: 3,
                 spaceBetween: 24,
-                slidesOffsetBefore: 0,
-                slidesOffsetAfter: 32,
+                centeredSlides: false,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 80,
             },
             1280: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-                slidesOffsetBefore: 0,
-                slidesOffsetAfter: Math.max(24, (window.innerWidth - 1280) / 2 + 32),
+                slidesPerView: 3.5,
+                spaceBetween: 28,
+                centeredSlides: false,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 80,
             },
         },
         on: {
@@ -154,6 +160,22 @@ document.addEventListener('livewire:navigated', () => {
         height: '3px',
         position: 'top'
     });
+
+    // Operating Framework title blur on scroll
+    const operatingTitle = document.getElementById('operating-title');
+    if (operatingTitle) {
+        gsap.to(operatingTitle, {
+            filter: 'blur(8px)',
+            opacity: 0.3,
+            scrollTrigger: {
+                trigger: operatingTitle,
+                start: 'top 20%',
+                end: 'top -50%',
+                scrub: 1,
+                toggleActions: 'play none none reverse'
+            }
+        });
+    }
 });
 
 document.addEventListener('livewire:navigating', () => {
