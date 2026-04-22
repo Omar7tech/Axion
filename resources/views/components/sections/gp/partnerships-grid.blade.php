@@ -2,17 +2,22 @@
     <div class="container mx-auto max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
-            <div class="lg:col-span-8 group relative bg-[#080808] border border-white/5 p-12 overflow-hidden transition-all duration-700 hover:border-brand-yellow/50">
-                <div class="relative z-10 flex flex-col h-full justify-between min-h-[400px]">
-                    <div>
+            <div class="lg:col-span-8 group relative border border-white/5 transition-all duration-700 hover:border-brand-yellow/50">
+                <div class="relative p-12 overflow-hidden min-h-[400px] flex flex-col justify-between">
+                    {{-- Grayscale background image --}}
+                    <div class="absolute inset-0 grayscale" style="background-image: url('/covers/strategic-supplier.jpg'); background-size: cover; background-position: center;"></div>
+                    {{-- Dark overlay --}}
+                    <div class="absolute inset-0 bg-[#050505]/85 group-hover:bg-[#050505]/75 transition-all duration-700"></div>
+                    {{-- Content --}}
+                    <div class="relative z-10">
                         <span class="text-[9px] font-black text-brand-yellow uppercase tracking-widest">Division: Supply_Chain</span>
                         <h3 class="text-5xl font-black uppercase tracking-tighter mt-4 max-w-md">Strategic Supplier Partnerships</h3>
                     </div>
-                    <p class="text-sm text-white/40 uppercase tracking-tight max-w-lg leading-loose group-hover:text-white transition-colors">
+                    <p class="relative z-10 text-sm text-white/40 uppercase tracking-tight max-w-lg leading-loose group-hover:text-white transition-colors">
                         AXION builds strong relationships with trusted suppliers to ensure consistent access to high-quality materials and equipment.
                     </p>
+                    <div class="absolute -right-10 -bottom-10 text-[180px] font-black text-white/[0.02] select-none group-hover:text-brand-yellow/[0.03] transition-all z-10">01</div>
                 </div>
-                <div class="absolute -right-10 -bottom-10 text-[180px] font-black text-white/[0.02] select-none group-hover:text-brand-yellow/[0.03] transition-all">01</div>
             </div>
 
             <div class="lg:col-span-4 bg-brand-yellow p-12 flex flex-col justify-between text-black relative group overflow-hidden">
