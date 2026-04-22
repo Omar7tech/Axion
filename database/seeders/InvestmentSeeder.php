@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Investment;
 use Illuminate\Database\Seeder;
 
 class InvestmentSeeder extends Seeder
@@ -12,6 +12,6 @@ class InvestmentSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Investment::factory()->count(100)->create();
     }
 }

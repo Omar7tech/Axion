@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->call(BusinessSeeder::class);
+        $this->call(class: InvestmentSeeder::class);
     }
 }
