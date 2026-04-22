@@ -61,6 +61,7 @@ class BusinessesTable
                     ->since()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            
             ->filters([
                 TernaryFilter::make('is_active')
                     ->label('Status')
