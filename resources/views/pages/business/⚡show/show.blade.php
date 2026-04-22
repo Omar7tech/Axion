@@ -1,113 +1,94 @@
-<div>
-    {{-- HERO SECTION --}}
-    <section class="relative min-h-[70vh] flex items-end px-6 lg:px-20 pb-20">
-        {{-- Background Image with Split Gradient --}}
+<div class="bg-[#020202] text-white selection:bg-brand-yellow selection:text-black">
+    
+    {{-- COMPACT HERO --}}
+    <section class="relative h-[50vh] flex items-end pb-12 px-6 lg:px-20 overflow-hidden">
+        {{-- Background with Subtle Gradient Overlay --}}
         <div class="absolute inset-0 z-0">
             @if($business->hasMedia('cover'))
-                <img src="{{ $business->getFirstMediaUrl('cover', 'webp') }}" class="w-full h-full object-cover grayscale">
+                <img src="{{ $business->getFirstMediaUrl('cover', 'webp') }}" class="w-full h-full object-cover grayscale opacity-30">
             @else
-                <img src="{{ asset('covers/aboutus.png') }}" class="w-full h-full object-cover grayscale">
+                <img src="{{ asset('covers/aboutus.png') }}" class="w-full h-full object-cover grayscale opacity-20">
             @endif
-            {{-- Technical Grid Pattern --}}
-            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px]"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-black/80 to-transparent"></div>
+            
+            {{-- Tailwind Patterns & Gradients --}}
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/40 to-transparent"></div>
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px]"></div>
         </div>
 
-        <div class="container mx-auto max-w-7xl relative z-10">
-            <div class="grid lg:grid-cols-12 gap-8 items-end">
-                <div class="lg:col-span-8">
-                    <div class="flex items-center gap-3 mb-6 overflow-hidden">
-                        <span class="w-8 h-[1px] bg-brand-yellow"></span>
-                        <span class="text-[9px] font-black uppercase tracking-[0.8em] text-brand-yellow animate-pulse">Core Business</span>
-                    </div>
-                    <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
-                        {{ $business->title }}
-                    </h1>
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span>
+                    <span class="text-[9px] font-black uppercase tracking-widest text-white/70">Division {{ $business->id }}</span>
                 </div>
-                <div class="lg:col-span-4 lg:pb-4">
-                    @if($business->subtitle)
-                        <p class="text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed border-l-2 border-brand-yellow pl-6 opacity-80">
-                            {{ $business->subtitle }}
-                        </p>
-                    @endif
-                </div>
+                <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-tight">
+                    {{ $business->title }}
+                </h1>
             </div>
         </div>
     </section>
 
-    {{-- CONTENT SECTION --}}
-    <section class="relative min-h-[60vh] bg-[#080808] py-24 px-6 lg:px-20 overflow-hidden">
-        {{-- Background Geometric Pattern --}}
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 opacity-[0.15]"
-                 style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0);
-                        background-size: 40px 40px;">
-            </div>
-        </div>
-
-        <div class="container mx-auto max-w-7xl relative z-10">
-            <div class="grid lg:grid-cols-12 gap-16">
-
-                {{-- Left: Description --}}
-                @if($business->description)
-                <div class="lg:col-span-5">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="h-[1px] w-12 bg-brand-yellow"></div>
-                            <span class="text-brand-yellow text-[10px] font-black uppercase tracking-[0.4em]">Overview</span>
+    {{-- REFINED CONTENT GRID --}}
+    <section class="py-16 px-6 lg:px-20 border-t border-white/5 bg-[#020202]">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                {{-- Side Info --}}
+                <div class="lg:col-span-4 space-y-8">
+                    @if($business->description)
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 shadow-2xl">
+                            <h3 class="text-[10px] font-bold uppercase tracking-widest text-brand-yellow mb-4">Strategic Overview</h3>
+                            <p class="text-base text-white/70 leading-relaxed font-medium">
+                                {{ $business->description }}
+                            </p>
                         </div>
-                        <p class="text-lg leading-relaxed text-white/80">
-                            {{ $business->description }}
-                        </p>
+                    @endif
+
+                    {{-- Dynamic Stats or Indicators --}}
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+                            <span class="block text-[9px] text-white/30 uppercase tracking-widest mb-1">Status</span>
+                            <span class="text-xs font-bold text-white/90">Operational</span>
+                        </div>
+                        <div class="p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+                            <span class="block text-[9px] text-white/30 uppercase tracking-widest mb-1">Region</span>
+                            <span class="text-xs font-bold text-white/90">Global</span>
+                        </div>
                     </div>
                 </div>
-                @endif
 
-                {{-- Right: Content --}}
-                @if($business->content)
-                <div class="lg:col-span-7">
-                    <div class="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 p-10 lg:p-12 rounded-2xl shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
-                        <div class="absolute -top-6 -left-6 text-8xl font-black text-brand-yellow/10 select-none">"</div>
-                        <div class="prose prose-invert prose-sm max-w-none relative z-10">
+                {{-- Detailed Content --}}
+                <div class="lg:col-span-8">
+                    <div class="relative p-1 md:p-8 rounded-3xl">
+                        {{-- Subtle background glow pattern --}}
+                        <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                        
+                        <div class="relative prose prose-invert prose-sm md:prose-base max-w-none 
+                                    prose-p:text-white/50 prose-p:leading-relaxed
+                                    prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
+                                    prose-strong:text-brand-yellow prose-strong:font-black
+                                    prose-ul:space-y-2 prose-li:text-white/50">
                             {!! $business->content !!}
                         </div>
                     </div>
                 </div>
-                @endif
-
-                {{-- Full Width if only one exists --}}
-                @if($business->description && !$business->content)
-                    {{-- Already handled in left column --}}
-                @elseif(!$business->description && $business->content)
-                    <div class="lg:col-span-12">
-                        <div class="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 p-10 lg:p-16 rounded-2xl shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
-                            <div class="prose prose-invert max-w-none">
-                                {!! $business->content !!}
-                            </div>
-                        </div>
-                    </div>
-                @endif
             </div>
         </div>
     </section>
 
-    {{-- CTA / BACK SECTION --}}
-    <section class="py-20 bg-brand-black border-t border-white/5 px-6 lg:px-20">
-        <div class="container mx-auto max-w-7xl">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="space-y-2">
-                    <h3 class="text-3xl font-black uppercase tracking-tighter">Explore More</h3>
-                    <p class="text-xs text-white/50 uppercase tracking-widest">Discover our other core businesses</p>
-                </div>
-                <a href="{{ route('business.index') }}"
-                   class="group flex items-center gap-4 px-8 py-4 border-2 border-brand-yellow text-brand-yellow font-black uppercase text-xs tracking-[0.2em] transition-all duration-300 hover:bg-brand-yellow hover:text-black">
-                    <span>View All Businesses</span>
-                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
+    {{-- COMPACT CTA --}}
+    <footer class="py-12 border-t border-white/5 px-6 lg:px-20 bg-[#010101]">
+        <div class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-white/20 mb-1">Axion Ecosystem</p>
+                <p class="text-sm font-medium text-white/60">Industrial Solutions & Trade</p>
             </div>
+            
+            <a href="{{ route('business.index') }}" 
+               class="inline-flex items-center gap-4 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-brand-yellow hover:text-black transition-all duration-300">
+                <span>View All Divisions</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
         </div>
-    </section>
+    </footer>
 </div>
