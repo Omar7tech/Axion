@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Investments\Schemas;
 
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class InvestmentInfolist
@@ -11,22 +13,57 @@ class InvestmentInfolist
     {
         return $schema
             ->components([
-                
-                
-                TextEntry::make('project_name'),
-                TextEntry::make('project_description')
-                    ->placeholder('-'),
-                TextEntry::make('project_content')
-                    ->placeholder('-')
+                Section::make('Project Information')
+                    ->schema([
+                        TextEntry::make('project_name')
+                            ->label('Project Name')
+                            ->size('lg')
+                            ->weight('bold'),
+
+                        TextEntry::make('project_description')
+                            ->label('Description')
+                            ->placeholder('No description provided'),
+
+                        TextEntry::make('investment_amount')
+                            ->label('Investment Amount')
+                            ->money('USD')
+                            ->placeholder('Not specified'),
+
+                        TextEntry::make('project_content')
+                            ->label('Project Details')
+                            ->html()
+                            ->placeholder('No details provided')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2)
                     ->columnSpanFull(),
-                TextEntry::make('investment_amount')
-                    ->placeholder('-'),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+
+                Section::make('Project Images')
+                    ->schema([
+                        SpatieMediaLibraryImageEntry::make('images')
+                            ->collection('images')
+                            ->label('')
+                            ->size('lg')
+                            ->columnSpanFull(),
+                    ])
+                    ->columnSpanFull()
+                    ->visible(fn ($record) => $record->hasMedia('images')),
+
+                Section::make('Timestamps')
+                    ->schema([
+                        TextEntry::make('created_at')
+                            ->label('Created')
+                            ->dateTime()
+                            ->since(),
+
+                        TextEntry::make('updated_at')
+                            ->label('Last Updated')
+                            ->dateTime()
+                            ->since(),
+                    ])
+                    ->columns(2)
+                    ->columnSpanFull()
+                    ->collapsible(),
             ]);
     }
 }
