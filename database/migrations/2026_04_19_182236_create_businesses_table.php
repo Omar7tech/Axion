@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('link')->nullable();
             $table->integer('sort')->default(0);
             $table->boolean('is_active')->default(true);
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
     }
