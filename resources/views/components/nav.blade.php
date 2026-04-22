@@ -32,7 +32,7 @@
             id="site-nav"
             class="flex w-full items-center justify-between px-6 transition-all duration-500 ease-out"
             :class="scrolled
-                ? 'max-w-4xl h-14 rounded-2xl border border-white/10 bg-brand-second-black/70 backdrop-blur-sm shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
+                ? 'max-w-6xl h-14 rounded-2xl border border-white/10 bg-brand-second-black/70 backdrop-blur-sm shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
                 : 'max-w-none h-16 bg-brand-black/80 backdrop-blur-md border-b border-white/5'"
         >
             {{-- Logo --}}
