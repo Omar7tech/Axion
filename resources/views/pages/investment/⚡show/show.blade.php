@@ -36,11 +36,6 @@
                         </svg>
                         <span class="uppercase tracking-wider">{{ $investment->created_at->format('F Y') }}</span>
                     </div>
-                    <span class="w-px h-4 bg-white/20"></span>
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full {{ $investment->is_active ? 'bg-green-500' : 'bg-red-500' }}"></span>
-                        <span class="uppercase tracking-wider">{{ $investment->is_active ? 'Active' : 'Inactive' }}</span>
-                    </div>
                 </div>
             </div>
         </div>
