@@ -21,9 +21,10 @@ class InvestmentForm
                     ->placeholder('Enter project name'),
 
                 TextInput::make('project_description')
-                    ->maxLength(255)
+                    ->maxLength(100)
                     ->label('Project Description')
-                    ->placeholder('Brief description of the project'),
+                    ->placeholder('Brief description of the project')
+                    ->helperText('Maximum 100 characters'),
 
                 RichEditor::make('project_content')
                     ->label('Project Content')
