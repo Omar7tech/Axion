@@ -70,9 +70,7 @@
                     <div class="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 p-10 lg:p-12 rounded-2xl shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
                         <div class="absolute -top-6 -left-6 text-8xl font-black text-brand-yellow/10 select-none">"</div>
                         <div class="prose prose-invert prose-sm max-w-none relative z-10">
-                            <div class="text-sm leading-relaxed text-white/70 space-y-4">
-                                {!! nl2br(e($business->content)) !!}
-                            </div>
+                            {!! $business->content !!}
                         </div>
                     </div>
                 </div>
@@ -85,9 +83,7 @@
                     <div class="lg:col-span-12">
                         <div class="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 p-10 lg:p-16 rounded-2xl shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
                             <div class="prose prose-invert max-w-none">
-                                <div class="text-base leading-relaxed text-white/80 space-y-4">
-                                    {!! nl2br(e($business->content)) !!}
-                                </div>
+                                {!! $business->content !!}
                             </div>
                         </div>
                     </div>

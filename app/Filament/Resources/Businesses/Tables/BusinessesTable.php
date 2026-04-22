@@ -47,6 +47,9 @@ class BusinessesTable
                 ToggleColumn::make('is_active')
                     ->label('Active'),
 
+                ToggleColumn::make('is_published')
+                    ->label('Published'),
+
                 TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime()
@@ -61,13 +64,19 @@ class BusinessesTable
                     ->since()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            
+
             ->filters([
                 TernaryFilter::make('is_active')
-                    ->label('Status')
+                    ->label('Active Status')
                     ->placeholder('All')
                     ->trueLabel('Active')
                     ->falseLabel('Inactive'),
+
+                TernaryFilter::make('is_published')
+                    ->label('Published Status')
+                    ->placeholder('All')
+                    ->trueLabel('Published')
+                    ->falseLabel('Draft'),
             ])
             ->defaultSort('sort', 'asc')
             ->reorderable('sort')

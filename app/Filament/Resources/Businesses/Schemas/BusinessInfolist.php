@@ -60,6 +60,10 @@ class BusinessInfolist
                             ->label('Active')
                             ->boolean(),
 
+                        IconEntry::make('is_published')
+                            ->label('Published')
+                            ->boolean(),
+
                         TextEntry::make('created_at')
                             ->label('Created')
                             ->dateTime()

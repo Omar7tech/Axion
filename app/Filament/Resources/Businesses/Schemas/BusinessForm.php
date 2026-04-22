@@ -69,6 +69,12 @@ class BusinessForm
                             ->helperText('Inactive businesses will not be shown publicly.')
                             ->default(true)
                             ->required(),
+
+                        Toggle::make('is_published')
+                            ->label('Published')
+                            ->helperText('Only published businesses are visible on the website.')
+                            ->default(false)
+                            ->required(),
                     ]),
             ]);
     }
