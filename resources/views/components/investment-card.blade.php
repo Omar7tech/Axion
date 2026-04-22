@@ -34,12 +34,6 @@
                 <span class="text-xs font-black text-white">${{ number_format($investment->investment_amount, 0) }}</span>
             </div>
         @endif
-
-        @if($investment->project_content)
-            <p class="text-[11px] text-white/50 leading-relaxed max-w-[90%]">
-                {{ Str::limit(strip_tags($investment->project_content), 120) }}
-            </p>
-        @endif
     </div>
 
     <div class="relative z-10 flex items-center justify-between mt-8">
