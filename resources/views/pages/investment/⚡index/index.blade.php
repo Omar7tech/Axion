@@ -30,61 +30,7 @@
             </div>
 
             {{-- Pagination --}}
-            @if($this->investments->hasPages())
-                <div class="mt-12">
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-                        {{-- Pagination Info --}}
-                        <div class="text-xs text-white/40 uppercase tracking-wider">
-                            Showing <span class="text-brand-yellow font-bold">{{ $this->investments->firstItem() ?? 0 }}</span>
-                            to <span class="text-brand-yellow font-bold">{{ $this->investments->lastItem() ?? 0 }}</span>
-                            of <span class="text-brand-yellow font-bold">{{ $this->totalCount }}</span> investments
-                        </div>
-
-                        {{-- Pagination Links --}}
-                        <div class="flex items-center gap-2">
-                            {{-- Previous Button --}}
-                            @if($this->investments->onFirstPage())
-                                <span class="px-4 py-2 border border-white/10 text-white/20 text-xs font-black uppercase cursor-not-allowed">
-                                    Previous
-                                </span>
-                            @else
-                                <button wire:click="previousPage" wire:loading.attr="disabled"
-                                    class="px-4 py-2 border border-brand-yellow/30 text-brand-yellow text-xs font-black uppercase hover:bg-brand-yellow hover:text-black transition-all">
-                                    Previous
-                                </button>
-                            @endif
-
-                            {{-- Page Numbers --}}
-                            <div class="flex items-center gap-1">
-                                @foreach(range(1, $this->investments->lastPage()) as $page)
-                                    @if($page === $this->investments->currentPage())
-                                        <span class="w-10 h-10 flex items-center justify-center bg-brand-yellow text-black font-black text-sm">
-                                            {{ $page }}
-                                        </span>
-                                    @else
-                                        <button wire:click="gotoPage({{ $page }})"
-                                            class="w-10 h-10 flex items-center justify-center border border-white/10 text-white/60 font-bold text-sm hover:border-brand-yellow/30 hover:text-brand-yellow transition-all">
-                                            {{ $page }}
-                                        </button>
-                                    @endif
-                                @endforeach
-                            </div>
-
-                            {{-- Next Button --}}
-                            @if($this->investments->hasMorePages())
-                                <button wire:click="nextPage" wire:loading.attr="disabled"
-                                    class="px-4 py-2 border border-brand-yellow/30 text-brand-yellow text-xs font-black uppercase hover:bg-brand-yellow hover:text-black transition-all">
-                                    Next
-                                </button>
-                            @else
-                                <span class="px-4 py-2 border border-white/10 text-white/20 text-xs font-black uppercase cursor-not-allowed">
-                                    Next
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            @endif
+            {{ $this->investments->links() }}
 
             {{-- Loading Indicator --}}
             <div wire:loading class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
