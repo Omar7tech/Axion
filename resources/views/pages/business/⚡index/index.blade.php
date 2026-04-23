@@ -23,7 +23,7 @@
 
             {{-- Business Cards Grid --}}
             <div class="w-full">
-                <livewire:business-list />
+            <livewire:business-list />
             </div>
         </div>
     </section>
