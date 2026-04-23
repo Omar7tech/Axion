@@ -5,14 +5,12 @@ use Spatie\LaravelSettings\Migrations\SettingsMigration;
 return new class extends SettingsMigration {
     public function up(): void
     {
-        $this->migrator->update('general.contact_emails', fn() => [
+        $this->migrator->add('general.contact_emails', fn() => [
             ['label' => 'Sales', 'email' => 'info@axion.com'],
         ]);
-        $this->migrator->update('general.contact_phones', fn() => [
+        $this->migrator->add('general.contact_phones', fn() => [
             ['label' => 'Main', 'phone' => '+13473305000'],
         ]);
-        $this->migrator->add('general.contact_emails', []);
-        $this->migrator->add('general.contact_phones', []);
         $this->migrator->add('general.whatsapp_badge_visible', false);
         $this->migrator->add('general.whatsapp_phone_number', '');
         $this->migrator->add('general.social_media', []);
