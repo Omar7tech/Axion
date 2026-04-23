@@ -12,10 +12,10 @@
     <div class="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
         @if($business->hasMedia('cover'))
             <img src="{{ $business->getFirstMediaUrl('cover', 'webp') }}" alt="{{ $business->title }}"
-                class="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all">
+                class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all">
         @else
             <img src="{{ asset('covers/aboutus.png') }}" alt="{{ $business->title }}"
-                class="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all">
+                class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all">
         @endif
         <div class="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-transparent"></div>
     </div>

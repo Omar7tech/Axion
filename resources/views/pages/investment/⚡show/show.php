@@ -12,7 +12,7 @@ new class extends Component {
     {
         return $this->investment->hasMedia('images')
             ? $this->investment->getFirstMediaUrl('images', 'webp')
-            : asset('covers/investment-placeholder.png');
+            : asset('covers/investment-defualt.jpg');
     }
 
     #[Computed]
