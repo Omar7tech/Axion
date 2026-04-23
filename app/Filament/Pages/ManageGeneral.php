@@ -28,7 +28,7 @@ class ManageGeneral extends SettingsPage
             ->components([
                 Tabs::make('Tabs')
                     ->tabs([
-                        Tabs::make('Company')
+                        Tab::make('Company')
                             ->schema([
                                 Textarea::make('about_company')
                                     ->label('About Company')
