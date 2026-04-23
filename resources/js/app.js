@@ -5,7 +5,14 @@ import Swiper from 'swiper';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-document.addEventListener('livewire:navigating', () => {
+
+// Nav entrance animations - only on initial page load
+let navAnimated = false;
+
+function animateNavEntrance() {
+    if (navAnimated) return;
+    navAnimated = true;
+
     // Entrance: entire nav slides down
     gsap.from('#site-nav-wrapper', {
         y: -60,
@@ -42,7 +49,10 @@ document.addEventListener('livewire:navigating', () => {
         ease: 'power2.out',
         delay: 0.85,
     });
-});
+}
+
+// Run nav animation on initial page load
+document.addEventListener('DOMContentLoaded', animateNavEntrance);
 
 
 

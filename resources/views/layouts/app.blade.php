@@ -21,12 +21,18 @@
 
 <body
     class="bg-brand-black text-brand-white font-poppins  selection:bg-brand-yellow selection:text-black overflow-x-hidden">
-    <x-nav />
+    @persist('navigation')
+        <x-nav />
+    @endpersist
 
     <main class="pt-[66px]">
         {{ $slot }}
     </main>
-    <x-footer />
+
+    @persist('footer')
+        <x-footer />
+    @endpersist
+
     @livewireScripts
     <!-- <script src="https://cdn.jsdelivr.net/gh/SH20RAJ/ScrollProgressJS@main/ScrollProgress.js"></script> -->
 </body>
