@@ -40,7 +40,7 @@
             {{-- 03: Logistics & Distribution Alliances --}}
             <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500 overflow-hidden">
                 {{-- Background image --}}
-                <div class="absolute inset-0 grayscale opacity-40" style="background-image: url('/covers/logistics-dist.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="absolute inset-0 grayscale group-hover:grayscale-0 opacity-40 transition-all duration-700" style="background-image: url('/covers/logistics-dist.jpg'); background-size: cover; background-position: center;"></div>
                 <div class="absolute inset-0 bg-[#050505]/60"></div>
 
                 <div class="flex justify-between items-start gap-4 relative z-10">
@@ -58,7 +58,7 @@
             {{-- 04: Technology & Innovation Partnerships --}}
             <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500 overflow-hidden">
                 {{-- Background image --}}
-                <div class="absolute inset-0 grayscale opacity-40" style="background-image: url('/covers/Technology-Innovation.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="absolute inset-0 grayscale group-hover:grayscale-0 opacity-40 transition-all duration-700" style="background-image: url('/covers/Technology-Innovation.jpg'); background-size: cover; background-position: center;"></div>
                 <div class="absolute inset-0 bg-[#050505]/60"></div>
 
                 <div class="flex justify-between items-start gap-4 relative z-10">
