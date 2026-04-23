@@ -5,7 +5,7 @@
             
             {{-- Kinetic Background: Revealed on Hover --}}
             <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
-                <img src="https://picsum.photos/1200/400?grayscale&random=701" class="w-full h-full object-cover scale-150 group-hover:scale-100 transition-transform duration-[2s] ease-out">
+                <img src="{{ asset('covers/investment-defualt.jpg') }}" class="w-full h-full object-cover scale-150 group-hover:scale-100 transition-transform duration-[2s] ease-out grayscale">
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
             </div>
 
