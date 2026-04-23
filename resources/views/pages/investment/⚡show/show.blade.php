@@ -68,12 +68,33 @@
             {{-- LEFT: CONTENT --}}
             <div class="lg:col-span-8 space-y-12">
                 @if($investment->project_content)
-                    <article class="prose prose-invert prose-sm sm:prose-base max-w-none prose-h2:uppercase prose-h2:tracking-tighter prose-h2:font-black prose-p:text-white/60">
-                        <h2 class="text-xl md:text-2xl border-b border-white/10 pb-4">Strategy & Execution</h2>
-                        <div class="mt-6">
+                    <div class="space-y-6">
+                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-tighter border-b border-white/10 pb-4">Strategy & Execution</h2>
+                        <article class="prose prose-invert prose-lg max-w-none
+                            prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
+                            prose-h1:text-3xl prose-h1:mb-4 prose-h1:mt-8
+                            prose-h2:text-2xl prose-h2:mb-3 prose-h2:mt-6
+                            prose-h3:text-xl prose-h3:mb-2 prose-h3:mt-5
+                            prose-h4:text-lg prose-h4:mb-2 prose-h4:mt-4
+                            prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-4
+                            prose-a:text-brand-yellow prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+                            prose-strong:text-white prose-strong:font-bold
+                            prose-em:text-white/80 prose-em:italic
+                            prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ul:text-white/70
+                            prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-ol:text-white/70
+                            prose-li:mb-2 prose-li:text-white/70
+                            prose-blockquote:border-l-4 prose-blockquote:border-brand-yellow prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-white/60
+                            prose-code:text-brand-yellow prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                            prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg prose-pre:p-4
+                            prose-img:rounded-lg prose-img:border prose-img:border-white/10
+                            prose-hr:border-white/10 prose-hr:my-8
+                            prose-table:border-collapse prose-table:w-full
+                            prose-thead:border-b prose-thead:border-white/20
+                            prose-th:text-left prose-th:p-3 prose-th:font-bold prose-th:text-white
+                            prose-td:p-3 prose-td:border-b prose-td:border-white/10 prose-td:text-white/70">
                             {!! $investment->project_content !!}
-                        </div>
-                    </article>
+                        </article>
+                    </div>
                 @endif
 
                 {{-- GALLERY WITH ALPINE TRIGGER --}}
