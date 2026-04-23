@@ -56,15 +56,19 @@
             </div>
 
             {{-- 04: Technology & Innovation Partnerships --}}
-            <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500">
-                <div class="flex justify-between items-start gap-4">
+            <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500 overflow-hidden">
+                {{-- Background image --}}
+                <div class="absolute inset-0 grayscale opacity-40" style="background-image: url('/covers/Technology-Innovation.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="absolute inset-0 bg-[#050505]/60"></div>
+
+                <div class="flex justify-between items-start gap-4 relative z-10">
                     <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter break-words">Technology & Innovation Partnerships</h3>
                     <div class="text-[10px] font-mono text-white/20 group-hover:text-brand-yellow transition-colors shrink-0">04</div>
                 </div>
-                <p class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest leading-relaxed">
+                <p class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest leading-relaxed relative z-10">
                     Collaborate with technology partners to enhance innovation and process optimization.
                 </p>
-                <div class="mt-auto h-px w-full bg-white/5 relative overflow-hidden">
+                <div class="mt-auto h-px w-full bg-white/5 relative overflow-hidden z-10">
                     <div class="absolute inset-0 bg-brand-yellow -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
                 </div>
             </div>
