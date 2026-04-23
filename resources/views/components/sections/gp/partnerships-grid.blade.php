@@ -37,27 +37,37 @@
                 <div class="text-7xl md:text-9xl font-black tracking-tighter opacity-10 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform">02</div>
             </div>
 
-            @php
-                $nodes = [
-                    ['Logistics & Distribution Alliances', 'These alliances improve supply chain efficiency, reduce delays, and maintain stability.', '03'],
-                    ['Technology & Innovation Partnerships', 'Collaborate with technology partners to enhance innovation and process optimization.', '04']
-                ];
-            @endphp
+            {{-- 03: Logistics & Distribution Alliances --}}
+            <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500 overflow-hidden">
+                {{-- Background image --}}
+                <div class="absolute inset-0 grayscale opacity-40" style="background-image: url('/covers/logistics-dist.jpg'); background-size: cover; background-position: center;"></div>
+                <div class="absolute inset-0 bg-[#050505]/60"></div>
 
-            @foreach($nodes as $node)
+                <div class="flex justify-between items-start gap-4 relative z-10">
+                    <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter break-words">Logistics & Distribution Alliances</h3>
+                    <div class="text-[10px] font-mono text-white/20 group-hover:text-brand-yellow transition-colors shrink-0">03</div>
+                </div>
+                <p class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest leading-relaxed relative z-10">
+                    These alliances improve supply chain efficiency, reduce delays, and maintain stability.
+                </p>
+                <div class="mt-auto h-px w-full bg-white/5 relative overflow-hidden z-10">
+                    <div class="absolute inset-0 bg-brand-yellow -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
+                </div>
+            </div>
+
+            {{-- 04: Technology & Innovation Partnerships --}}
             <div class="lg:col-span-6 group relative border border-white/5 p-8 md:p-12 flex flex-col gap-6 md:gap-8 hover:bg-white/[0.02] transition-all duration-500">
                 <div class="flex justify-between items-start gap-4">
-                    <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter break-words">{{ $node[0] }}</h3>
-                    <div class="text-[10px] font-mono text-white/20 group-hover:text-brand-yellow transition-colors shrink-0">{{ $node[2] }}</div>
+                    <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter break-words">Technology & Innovation Partnerships</h3>
+                    <div class="text-[10px] font-mono text-white/20 group-hover:text-brand-yellow transition-colors shrink-0">04</div>
                 </div>
                 <p class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest leading-relaxed">
-                    {{ $node[1] }}
+                    Collaborate with technology partners to enhance innovation and process optimization.
                 </p>
                 <div class="mt-auto h-px w-full bg-white/5 relative overflow-hidden">
                     <div class="absolute inset-0 bg-brand-yellow -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 </section>
