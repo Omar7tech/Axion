@@ -33,7 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->darkMode(true , true)
+            ->darkMode(true, true)
             ->brandLogo(asset('/icons/axion2.png'))
             ->defaultThemeMode(ThemeMode::Dark)
             ->profile()
