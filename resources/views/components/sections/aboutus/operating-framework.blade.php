@@ -6,8 +6,8 @@
         <div class="mb-12 md:mb-20">
             <h2 class="font-black uppercase tracking-tighter leading-[0.85] text-white" 
                 style="font-size: clamp(2.5rem, 8vw, 5rem);">
-                Operating <br/> 
-                <span class="text-brand-yellow italic">Framework.</span>
+                Why Choose <br/> 
+                <span class="text-brand-yellow italic">Us.</span>
             </h2>
         </div>
 
