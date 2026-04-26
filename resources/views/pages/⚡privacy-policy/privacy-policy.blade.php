@@ -73,7 +73,7 @@
                         <h4 class="text-2xl font-black uppercase tracking-tighter">Questions?</h4>
                         <p class="text-[9px] uppercase tracking-widest text-white/30">Get in touch if you need further clarification.</p>
                     </div>
-                    <a href="mailto:hello@axion.com" class="px-12 py-5 bg-white text-black font-black uppercase tracking-[0.5em] text-[10px] hover:bg-brand-yellow transition-colors">
+                    <a href="{{ route('contact-us') }}" wire:navigate class="px-12 py-5 bg-white text-black font-black uppercase tracking-[0.5em] text-[10px] hover:bg-brand-yellow transition-colors">
                         Contact Us
                     </a>
                 </div>
