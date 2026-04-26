@@ -25,6 +25,7 @@ class CareerForm
                     ->placeholder('e.g. New York, NY or Remote')
                     ->maxLength(255),
                 Select::make('type')
+                ->native(false)
                     ->options([
                         'Full-time' => 'Full-time',
                         'Part-time' => 'Part-time',
