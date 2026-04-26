@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Axion" />
     <link rel="manifest" href="/site.webmanifest" />
-   <!--  <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css"> -->
+    <!--  <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css"> -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
@@ -22,15 +22,17 @@
 <body
     class="bg-brand-black text-brand-white font-poppins  selection:bg-brand-yellow selection:text-black overflow-x-hidden">
     @persist('navigation')
-        <x-nav />
+    <x-nav />
     @endpersist
 
     <main class="pt-[66px]">
         {{ $slot }}
     </main>
-
+    @persist('whatsapp-chat')
+    <x-whatsapp-badge />
+    @endpersist
     @persist('footer')
-        <x-footer />
+    <x-footer />
     @endpersist
 
     @livewireScripts
