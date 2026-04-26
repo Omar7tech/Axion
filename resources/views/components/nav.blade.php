@@ -131,7 +131,7 @@
                     ['Careers', route('careers.index')],
                     ['Partnerships', route('global-partnerships')],
                     ['About Us', route('about-us')],
-                    ['Contact Us', route('contact-us')],
+                   
                 ] as [$label, $href])
                 <a
                     href="{{ $href }}"
@@ -152,7 +152,7 @@
                     id="nav-cta-btn"
                     class="group inline-flex items-center gap-1.5 rounded-xl bg-brand-yellow px-5 py-2.5 text-[13px] font-semibold text-brand-black hover:brightness-105 active:scale-95 transition-all duration-200"
                 >
-                    Get A Quote
+                    Contact Us
                     <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                     </svg>
