@@ -16,10 +16,13 @@ use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
-class ManageGeneral extends SettingsPage
+class ManageGeneralSettings extends SettingsPage
 {
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
 
+    protected static ?string $navigationLabel = 'General Settings';
+
+    protected static ?string $title = 'General Settings';
     protected static string $settings = GeneralSettings::class;
 
     public function form(Schema $schema): Schema
@@ -27,14 +30,7 @@ class ManageGeneral extends SettingsPage
         return $schema
             ->components([
                 Tabs::make('Tabs')
-                    ->tabs([
-                        Tab::make('Company')
-                            ->schema([
-                                Textarea::make('about_company')
-                                    ->label('About Company')
-                                    ->rows(5)
-                                    ->columnSpanFull(),
-                            ]),
+                    ->tabs([       
                         Tab::make('About Us')
                             ->schema([
                                 RichEditor::make('about_us')
