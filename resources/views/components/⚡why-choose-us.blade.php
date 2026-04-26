@@ -25,9 +25,9 @@ new class extends Component {
 };
 ?>
 
-@if ($items->isNotEmpty())
-
-    <section class="py-16 md:py-32 relative bg-[#030303] overflow-hidden">
+<div>
+    @if ($items->isNotEmpty())
+        <section class="py-16 md:py-32 relative bg-[#030303] overflow-hidden">
         <div
             class="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-brand-yellow/5 blur-[100px] md:blur-[150px] rounded-full opacity-50">
         </div>
@@ -89,4 +89,5 @@ new class extends Component {
             </div>
         </div>
     </section>
-@endif
+    @endif
+</div>
