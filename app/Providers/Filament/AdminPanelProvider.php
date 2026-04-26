@@ -11,9 +11,11 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Assets\Theme;
+
+use App\Filament\Widgets\StatsOverviewWidget;
+use App\Filament\Widgets\CareersByTypeChart;
+use App\Filament\Widgets\BusinessStatusChart;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -31,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->darkMode(true , true)
             ->brandLogo(asset('/icons/axion2.png'))
             ->defaultThemeMode(ThemeMode::Dark)
             ->profile()
@@ -46,7 +49,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
+                StatsOverviewWidget::class,
+                CareersByTypeChart::class,
+                BusinessStatusChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,
