@@ -33,9 +33,7 @@ class ManageGeneralSettings extends SettingsPage
                     ->tabs([       
                         Tab::make('About Us')
                             ->schema([
-                                RichEditor::make('about_us')
-                                    ->label('Company Introduction')
-                                    ->helperText('Introductory paragraph shown at the top of the About Us page.')
+                                RichEditor::make('about_us_page_content')                                    
                                     ->columnSpanFull(),
                             ]),
                         Tab::make('WhatsApp')

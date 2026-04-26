@@ -9,7 +9,7 @@ class GeneralSettings extends Settings
 
      public array $social_media = [];
 
-    public ?string $about_us = 'Axion About Us';
+    public ?string $about_us_page_content = 'Axion About Us';
 
     public array $contact_emails = [];
 

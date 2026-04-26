@@ -17,6 +17,6 @@ return new class extends SettingsMigration {
         $this->migrator->add('general.whatsapp_badge_visible', false);
         $this->migrator->add('general.whatsapp_phone_number', '');
         $this->migrator->add('general.social_media', []);
-        $this->migrator->add('general.about_us', '');
+        $this->migrator->add('general.about_us_page_content', '');
     }
 };
