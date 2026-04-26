@@ -307,18 +307,18 @@
                                     Application Submitted
                                 </div>
                             @else
-                                <button x-show="!showForm && !hasApplied({{ $career->id }})" @click="showForm = true"
+                                <button x-cloak x-show="!showForm && !hasApplied({{ $career->id }})" @click="showForm = true"
                                     class="flex items-center justify-center gap-3 px-6 py-4 bg-brand-yellow text-black font-black uppercase text-xs tracking-widest hover:translate-y-[-2px] transition-all active:translate-y-0 shadow-xl shadow-brand-yellow/10">
                                     Submit Application
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                     </svg>
                                 </button>
-                                <button x-show="showForm" @click="showForm = false"
+                                <button x-cloak x-show="showForm" @click="showForm = false"
                                     class="flex items-center justify-center gap-3 px-6 py-4 bg-red-600 text-white font-black uppercase text-xs tracking-widest hover:bg-red-700 transition-all">
                                     Cancel
                                 </button>
-                                <div x-show="!showForm && hasApplied({{ $career->id }})" class="flex items-center justify-center gap-3 px-6 py-4 bg-green-600 text-white font-black uppercase text-xs tracking-widest cursor-default">
+                                <div x-cloak x-show="!showForm && hasApplied({{ $career->id }})" class="flex items-center justify-center gap-3 px-6 py-4 bg-green-600 text-white font-black uppercase text-xs tracking-widest cursor-default">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                     </svg>
