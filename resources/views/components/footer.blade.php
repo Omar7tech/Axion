@@ -31,9 +31,9 @@
                 <div class="space-y-5">
                     <h6 class="text-lg font-black uppercase tracking-[0.3em] text-brand-yellow">Company</h6>
                     <ul class="text-xl font-light uppercase tracking-[0.15em] space-y-1 text-white/50">
-                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Partners</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="{{ route('about-us') }}" wire:navigate class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="{{ route('global-partnerships') }}" wire:navigate class="hover:text-white transition-colors">Partners</a></li>
+                        <li><a href="{{ route('careers.index') }}" wire:navigate class="hover:text-white transition-colors">Careers</a></li>
                     </ul>
                 </div>
 

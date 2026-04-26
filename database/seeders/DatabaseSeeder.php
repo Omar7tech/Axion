@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        $this->call(BusinessSeeder::class);
-        $this->call(class: InvestmentSeeder::class);
+        $this->call([
+            BusinessSeeder::class,
+            InvestmentSeeder::class,
+            CareerSeeder::class
+        ]);
     }
 }

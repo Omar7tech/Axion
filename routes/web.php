@@ -12,3 +12,5 @@ Route::livewire('/businesses', 'pages::business.index')->name('business.index');
 Route::livewire('/business/{business}', 'pages::business.show')->name('business.show');
 Route::livewire('/investments', 'pages::investment.index')->name('investments');
 Route::livewire('/investment/{investment}', 'pages::investment.show')->name('investment.show');
+Route::livewire('/careers', 'pages::careers.index')->name('careers.index');
+Route::livewire('/careers/{career}', 'pages::careers.show')->name('careers.show');

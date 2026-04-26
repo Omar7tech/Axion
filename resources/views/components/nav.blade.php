@@ -128,6 +128,7 @@
 
                 @foreach([
                     ['Investments', route('investments')],
+                    ['Careers', route('careers.index')],
                     ['Partnerships', route('global-partnerships')],
                     ['About Us', route('about-us')],
                     ['Contact Us', route('contact-us')],
@@ -266,6 +267,7 @@
 
                 @foreach([
                     ['Investments', route('investments'), 'Explore opportunities'],
+                    ['Careers', route('careers.index'), 'Join our team'],
                     ['Partnerships', route('global-partnerships'), 'Our world network'],
                     ['About Us', route('about-us'), 'Our story'],
                     ['Contact Us', route('contact-us'), 'Get in touch'],
