@@ -1,0 +1,17 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Career;
+use Illuminate\Database\Seeder;
+
+class CareerSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        Career::factory()->count(100)->create();
+    }
+}
