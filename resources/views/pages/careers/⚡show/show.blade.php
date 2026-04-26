@@ -116,19 +116,6 @@
                         </div>
                     </div>
 
-                    <div x-show="hasApplied({{ $career->id }})" x-cloak
-                         class="rounded-2xl bg-amber-500/10 border border-amber-500/30 px-6 py-5 flex items-start gap-3 mb-6">
-                        <div class="w-7 h-7 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-black text-[13px] text-amber-300 mb-0.5">Already applied</p>
-                            <p class="text-[12px] text-amber-200/70">You've already submitted an application for this position from this browser. We've received it and will be in touch.</p>
-                        </div>
-                    </div>
-
                     @if($this->submitted)
                         <div class="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
                             <div class="px-7 py-12 flex flex-col items-center text-center gap-5">
@@ -150,6 +137,12 @@
                             novalidate
                             x-data="{
                                 fe: { fullName: null, email: null, phone: null, address: null, notes: null },
+                                profanityWords: ['fuck', 'shit', 'ass', 'bitch', 'damn', 'hell', 'crap', 'piss', 'dick', 'cock', 'pussy', 'whore', 'slut', 'bastard', 'idiot', 'moron', 'retard', 'nigger', 'nigga', 'fag', 'faggot', 'gay', 'lesbian', 'sex', 'porn', 'nude', 'naked', 'kill', 'die', 'death', 'hate', 'racist', 'nazi'],
+                                hasProfanity(value) {
+                                    if (!value) return false;
+                                    const lower = value.toLowerCase();
+                                    return this.profanityWords.some(word => lower.includes(word));
+                                },
                                 msg(el, label) {
                                     const v = el.validity;
                                     if (v.valueMissing)                        return 'The ' + label + ' field is required.';
@@ -159,17 +152,32 @@
                                 },
                                 validate() {
                                     const fields = [
-                                        { key: 'fullName', label: 'full name' },
-                                        { key: 'email',    label: 'email' },
-                                        { key: 'phone',    label: 'phone number' },
-                                        { key: 'address',  label: 'address' },
+                                        { key: 'fullName', label: 'full name', checkProfanity: true },
+                                        { key: 'email',    label: 'email',    checkProfanity: false },
+                                        { key: 'phone',    label: 'phone number', checkProfanity: false },
+                                        { key: 'address',  label: 'address',  checkProfanity: true },
                                     ];
                                     let ok = true;
-                                    fields.forEach(({ key, label }) => {
+                                    fields.forEach(({ key, label, checkProfanity }) => {
                                         const el = this.$refs[key];
-                                        this.fe[key] = (el && !el.checkValidity()) ? this.msg(el, label) : null;
-                                        if (this.fe[key]) ok = false;
+                                        if (el && !el.checkValidity()) {
+                                            this.fe[key] = this.msg(el, label);
+                                            ok = false;
+                                        } else if (checkProfanity && this.hasProfanity(el?.value)) {
+                                            this.fe[key] = 'The ' + label + ' field contains inappropriate language.';
+                                            ok = false;
+                                        } else {
+                                            this.fe[key] = null;
+                                        }
                                     });
+                                    // Check notes for profanity
+                                    const notesEl = this.$refs.notes;
+                                    if (notesEl && this.hasProfanity(notesEl.value)) {
+                                        this.fe.notes = 'The notes field contains inappropriate language.';
+                                        ok = false;
+                                    } else {
+                                        this.fe.notes = null;
+                                    }
                                     return ok;
                                 }
                             }"
@@ -256,9 +264,10 @@
                                         Notes
                                         <span class="normal-case tracking-normal font-medium text-white/30 ml-1">(optional)</span>
                                     </label>
-                                    <textarea id="notes" wire:model.blur="notes" rows="4" maxlength="2000"
+                                    <textarea id="notes" x-ref="notes" wire:model.blur="notes" rows="4" maxlength="2000"
                                               placeholder="Tell us a bit about yourself, your experience, or why you're interested in this role..."
                                               class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[13.5px] text-white outline-none transition-all duration-150 placeholder:text-white/25 focus:border-brand-yellow focus:shadow-[0_0_0_3px_rgba(246,171,3,0.10)] resize-none"></textarea>
+                                    <p x-show="fe.notes" x-text="fe.notes" class="mt-1.5 text-[11.5px] text-red-400 font-medium"></p>
                                     @error('notes') <p class="mt-1.5 text-[11.5px] text-red-400 font-medium">{{ $message }}</p> @enderror
                                 </div>
 
@@ -315,7 +324,7 @@
                                     </svg>
                                 </button>
                                 <button x-cloak x-show="showForm" @click="showForm = false"
-                                    class="flex items-center justify-center gap-3 px-6 py-4 bg-red-600 text-white font-black uppercase text-xs tracking-widest hover:bg-red-700 transition-all">
+                                    class="flex items-center justify-center gap-3 px-6 py-4 border border-red-500 text-red-500 font-black uppercase text-xs tracking-widest hover:bg-red-500/10 transition-all">
                                     Cancel
                                 </button>
                                 <div x-cloak x-show="!showForm && hasApplied({{ $career->id }})" class="flex items-center justify-center gap-3 px-6 py-4 bg-green-600 text-white font-black uppercase text-xs tracking-widest cursor-default">

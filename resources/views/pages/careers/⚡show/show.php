@@ -2,6 +2,7 @@
 
 use App\Models\Career;
 use App\Models\CareerApplication;
+use Blaspsoft\Blasp\Facades\Blasp;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\RateLimiter;
 use Livewire\Attributes\Route;
@@ -48,6 +49,12 @@ new class extends Component
 
             $validated = $this->validate();
 
+            $this->checkProfanity($validated);
+
+            if ($this->getErrorBag()->isNotEmpty()) {
+                return;
+            }
+
             $application = CareerApplication::create([
                 'career_id'  => $this->career->id,
                 'full_name'  => $validated['fullName'],
@@ -73,6 +80,7 @@ new class extends Component
             $body    = rawurlencode(implode("\n", $bodyLines));
 
             $this->submitted = true;
+            $this->showForm = false;
             $this->resetForm();
 
             $this->dispatch('career-applied', careerId: $this->career->id);
@@ -83,6 +91,26 @@ new class extends Component
             }
         } finally {
             $lock->release();
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $validated
+     */
+    private function checkProfanity(array $validated): void
+    {
+        $fields = [
+            'fullName' => 'full name',
+            'address'  => 'address',
+            'notes'    => 'notes',
+        ];
+
+        foreach ($fields as $key => $label) {
+            $value = $validated[$key] ?? '';
+
+            if (filled($value) && Blasp::check($value)->isOffensive()) {
+                $this->addError($key, "The {$label} field contains inappropriate language.");
+            }
         }
     }
 
