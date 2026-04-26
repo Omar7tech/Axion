@@ -30,10 +30,21 @@ class ManageGeneralSettings extends SettingsPage
         return $schema
             ->components([
                 Tabs::make('Tabs')
-                    ->tabs([       
+                    ->tabs([
+                        Tab::make('Hero Section')
+                            ->schema([
+                                Textarea::make('hero_ecosystem_blurb')
+                                    ->label('Hero Ecosystem Blurb')
+                                    ->rows(3)
+                                    ->helperText('The description text shown in the hero section')
+                                    ->columnSpanFull(),
+
+                            ]),
                         Tab::make('About Us')
                             ->schema([
-                                RichEditor::make('about_us_page_content')                                    
+
+                                RichEditor::make('about_us_page_content')
+                                    ->label('About Us Page Content')
                                     ->columnSpanFull(),
                             ]),
                         Tab::make('WhatsApp')

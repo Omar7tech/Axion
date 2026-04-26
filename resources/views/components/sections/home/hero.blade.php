@@ -1,3 +1,7 @@
+@php
+    $heroBlurb = app(\App\Settings\GeneralSettings::class)->hero_ecosystem_blurb;
+@endphp
+
 <section class="relative min-h-[90vh] flex items-center px-6 lg:px-20 py-10 overflow-hidden bg-[#050505]">
 
     {{-- BACKGROUND DECORATION --}}
@@ -78,8 +82,7 @@
                 {{-- 02. THE ECOSYSTEM BLURB --}}
                 <div class="relative max-w-lg group cursor-default">
                     <p class="text-sm md:text-base text-white/50 leading-relaxed font-medium tracking-wide border-l-0 group-hover:border-l-2 border-brand-yellow/50 group-hover:pl-6 transition-all duration-500">
-                        A unified ecosystem where <span class="text-white group-hover:text-brand-yellow transition-colors duration-500">advanced tech</span> meets
-                        <span class="text-white group-hover:text-brand-yellow transition-colors duration-500">global trade</span>. We architect the future of industrial synergy.
+                        {!! $heroBlurb !!}
                     </p>
                 </div>
 

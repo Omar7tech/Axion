@@ -18,5 +18,6 @@ return new class extends SettingsMigration {
         $this->migrator->add('general.whatsapp_phone_number', '');
         $this->migrator->add('general.social_media', []);
         $this->migrator->add('general.about_us_page_content', '');
+        $this->migrator->add('general.hero_ecosystem_blurb', 'A unified ecosystem where advanced tech meets global trade. We architect the future of industrial synergy.');
     }
 };

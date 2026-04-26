@@ -11,6 +11,8 @@ class GeneralSettings extends Settings
 
     public ?string $about_us_page_content = 'Axion About Us';
 
+    public ?string $hero_ecosystem_blurb = 'A unified ecosystem where advanced tech meets global trade. We architect the future of industrial synergy.';
+
     public array $contact_emails = [];
 
     public array $contact_phones = [];
