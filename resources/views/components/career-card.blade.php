@@ -1,7 +1,7 @@
 @props(['career', 'index'])
 
 <a wire:navigate href="{{ route('careers.show', $career) }}"
-    class="relative min-h-[280px] p-8 border border-white/10 overflow-hidden group flex flex-col justify-between transition-all duration-500 hover:border-brand-yellow/60 cursor-pointer block">
+    class="relative  p-8 border border-white/10 overflow-hidden group flex flex-col justify-between transition-all duration-500 hover:border-brand-yellow/60 cursor-pointer block">
 
     {{-- Background Pattern --}}
     <div class="absolute inset-0 z-0 transition-transform duration-700">
@@ -50,12 +50,6 @@
                 </div>
             @endif
         </div>
-
-        @if($career->description)
-            <p class="text-[11px] text-white/50 leading-relaxed max-w-[90%]">
-                {!! Str::limit($career->description, 120) !!}
-            </p>
-        @endif
     </div>
 
     <div class="relative z-10 flex items-center justify-between mt-8">
