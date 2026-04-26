@@ -143,6 +143,16 @@
                                     const lower = value.toLowerCase();
                                     return this.profanityWords.some(word => lower.includes(word));
                                 },
+                                isValidPhone(value) {
+                                    if (!value) return false;
+                                    const phoneRegex = /^[+]?[\d\s\-()]{7,50}$/;
+                                    return phoneRegex.test(value);
+                                },
+                                isValidName(value) {
+                                    if (!value) return false;
+                                    const nameRegex = /^[a-zA-Z\s\-']+$/;
+                                    return nameRegex.test(value);
+                                },
                                 msg(el, label) {
                                     const v = el.validity;
                                     if (v.valueMissing)                        return 'The ' + label + ' field is required.';
@@ -152,16 +162,22 @@
                                 },
                                 validate() {
                                     const fields = [
-                                        { key: 'fullName', label: 'full name', checkProfanity: true },
+                                        { key: 'fullName', label: 'full name', checkProfanity: true, checkName: true },
                                         { key: 'email',    label: 'email',    checkProfanity: false },
-                                        { key: 'phone',    label: 'phone number', checkProfanity: false },
+                                        { key: 'phone',    label: 'phone number', checkProfanity: false, checkPhone: true },
                                         { key: 'address',  label: 'address',  checkProfanity: true },
                                     ];
                                     let ok = true;
-                                    fields.forEach(({ key, label, checkProfanity }) => {
+                                    fields.forEach(({ key, label, checkProfanity, checkPhone, checkName }) => {
                                         const el = this.$refs[key];
                                         if (el && !el.checkValidity()) {
                                             this.fe[key] = this.msg(el, label);
+                                            ok = false;
+                                        } else if (checkName && !this.isValidName(el?.value)) {
+                                            this.fe[key] = 'The ' + label + ' field may only contain letters, spaces, hyphens, and apostrophes.';
+                                            ok = false;
+                                        } else if (checkPhone && !this.isValidPhone(el?.value)) {
+                                            this.fe[key] = 'The ' + label + ' field format is invalid.';
                                             ok = false;
                                         } else if (checkProfanity && this.hasProfanity(el?.value)) {
                                             this.fe[key] = 'The ' + label + ' field contains inappropriate language.';

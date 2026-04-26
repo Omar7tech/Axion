@@ -25,9 +25,9 @@ new class extends Component
     protected function rules(): array
     {
         return [
-            'fullName' => ['required', 'string', 'max:255'],
+            'fullName' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s\-\']+$/'],
             'email'    => ['required', 'email', 'max:255'],
-            'phone'    => ['required', 'string', 'max:50'],
+            'phone'    => ['required', 'string', 'max:50', 'regex:/^[+]?[\d\s\-()]{7,50}$/'],
             'address'  => ['required', 'string', 'max:500'],
             'notes'    => ['nullable', 'string', 'max:2000'],
         ];
