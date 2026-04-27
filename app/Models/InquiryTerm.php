@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[Guarded(columns: ['id'])]
+#[Guarded( ['id'])]
 class InquiryTerm extends Model
 {
     /** @use HasFactory<\Database\Factories\InquiryTermFactory> */
