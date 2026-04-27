@@ -102,7 +102,7 @@
                         </div>
                     </a>
 
-                    <button @mouseenter="gsap.to($refs.sLine, { width: '100%', duration: 0.5, ease: 'expo.inOut' })"
+                    <a wire:navigate href="{{ route('business.index') }}" @mouseenter="gsap.to($refs.sLine, { width: '100%', duration: 0.5, ease: 'expo.inOut' })"
                         @mouseleave="gsap.to($refs.sLine, { width: '0%', duration: 0.5, ease: 'expo.inOut' })"
                         class="actuator-btn group relative h-16 w-full sm:w-64 border-2 border-white/10 hover:border-brand-yellow/40 transition-all duration-500"
                         style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 30%);">
@@ -113,7 +113,7 @@
                                 Our Businesses
                             </span>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
 
