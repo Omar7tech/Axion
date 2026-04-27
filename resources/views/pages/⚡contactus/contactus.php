@@ -22,6 +22,13 @@ new class extends Component
             $this->discussion = $firstTerm->term;
         }
     }
+
+    public function updatedContactMethod(): void
+    {
+        // Clear validation errors when contact method changes
+        $this->resetErrorBag(['email', 'phone']);
+    }
+
     public string $contactMethod = 'email';
     public string $email = '';
     public string $phone = '';
@@ -45,7 +52,7 @@ new class extends Component
 
         // Require phone if contactMethod is phone or both
         if (in_array($this->contactMethod, ['phone', 'both'])) {
-            $rules['phone'] = ['required', 'string', 'max:50'];
+            $rules['phone'] = ['required', 'string', 'max:50', 'regex:/^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/'];
         }
 
         return $rules;
@@ -64,6 +71,7 @@ new class extends Component
             'email.max' => 'The email field must not exceed 255 characters.',
             'phone.required' => 'The phone field is required.',
             'phone.max' => 'The phone field must not exceed 50 characters.',
+            'phone.regex' => 'Please enter a valid phone number.',
         ];
     }
 

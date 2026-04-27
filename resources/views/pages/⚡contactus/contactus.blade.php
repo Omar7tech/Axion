@@ -161,6 +161,9 @@
                     if (!$wire.phone.trim()) {
                         fe.phone = 'The phone field is required.';
                         valid = false;
+                    } else if (!/^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/.test($wire.phone)) {
+                        fe.phone = 'Please enter a valid phone number.';
+                        valid = false;
                     } else if ($wire.phone.length > 50) {
                         fe.phone = 'The phone field must not exceed 50 characters.';
                         valid = false;
@@ -269,21 +272,21 @@
                     <div class="flex items-center gap-1 bg-white/5 rounded-full p-1">
                         <button 
                             type="button"
-                            @click="$wire.contactMethod = 'email'"
+                            @click="$wire.contactMethod = 'email'; $wire.phone = ''; fe.email = null; fe.phone = null"
                             :class="$wire.contactMethod === 'email' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Email
                         </button>
                         <button 
                             type="button"
-                            @click="$wire.contactMethod = 'phone'"
+                            @click="$wire.contactMethod = 'phone'; $wire.email = ''; fe.email = null; fe.phone = null"
                             :class="$wire.contactMethod === 'phone' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Phone
                         </button>
                         <button 
                             type="button"
-                            @click="$wire.contactMethod = 'both'"
+                            @click="$wire.contactMethod = 'both'; fe.email = null; fe.phone = null"
                             :class="$wire.contactMethod === 'both' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Both
