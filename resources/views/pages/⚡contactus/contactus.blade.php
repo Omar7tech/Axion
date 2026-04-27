@@ -109,13 +109,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold mb-3">Message Sent!</h3>
-                    <p class="text-white/50 mb-6">Thank you for reaching out. We'll get back to you shortly.</p>
-                    <button 
-                        type="button"
-                        wire:click="$set('submitted', false)"
-                        class="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded-lg text-sm font-medium hover:border-brand-yellow hover:text-brand-yellow transition-all">
-                        Send another message
-                    </button>
+                    <p class="text-white/50">Thank you for reaching out. We'll get back to you shortly.</p>
                 </div>
             </div>
         @else
