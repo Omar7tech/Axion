@@ -24,12 +24,16 @@
         selected: @js($hasTerms ? $termsList[0] ?? '' : ''),
         options: @js($hasTerms ? array_merge($termsList, ['Other']) : []),
         showOtherInput: false,
-        otherValue: '',
         hasTerms: @js($hasTerms),
-        contactMethod: 'email',
-        emailValue: '',
-        phoneValue: ''
-    }" 
+        fe: {
+            fullName: null,
+            discussion: null,
+            otherDiscussion: null,
+            email: null,
+            phone: null
+        }
+    }"
+    x-on:inquiry-submitted.window="$nextTick(() => document.getElementById('success-message')?.scrollIntoView({behavior:'smooth',block:'center'}))"
     class="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row font-sans selection:bg-brand-yellow selection:text-black relative overflow-hidden">
     
     <div class="absolute inset-0 pointer-events-none z-0">
@@ -96,12 +100,101 @@
     <div class="w-full lg:w-3/5 p-6 lg:p-20 flex items-center justify-center bg-transparent relative z-10">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-yellow/[0.07] blur-[150px] rounded-full pointer-events-none"></div>
 
-        <form action="#" class="w-full max-w-xl space-y-16 relative">
-            <div class="space-y-4">
-                <h2 class="text-xl md:text-2xl font-light">Hello, I am <input type="text" placeholder="Your Name" class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-auto mt-2 md:mt-0 text-brand-yellow font-medium italic px-2"></h2>
+        @if($submitted)
+            <div id="success-message" class="w-full max-w-xl">
+                <div class="rounded-2xl bg-[#0a0a0a] border border-white/10 p-12 text-center">
+                    <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Message Sent!</h3>
+                    <p class="text-white/50 mb-6">Thank you for reaching out. We'll get back to you shortly.</p>
+                    <button 
+                        type="button"
+                        wire:click="$set('submitted', false)"
+                        class="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded-lg text-sm font-medium hover:border-brand-yellow hover:text-brand-yellow transition-all">
+                        Send another message
+                    </button>
+                </div>
+            </div>
+        @else
+        <form 
+            novalidate
+            x-on:submit.prevent="
+                let valid = true;
+                
+                // Reset errors
+                Object.keys(fe).forEach(k => fe[k] = null);
+                
+                // Validate full name
+                if (!$wire.fullName.trim()) {
+                    fe.fullName = 'The full name field is required.';
+                    valid = false;
+                } else if ($wire.fullName.length > 255) {
+                    fe.fullName = 'The full name field must not exceed 255 characters.';
+                    valid = false;
+                }
+                
+                // Validate discussion
+                if (!$wire.discussion.trim()) {
+                    fe.discussion = 'Please select a discussion topic.';
+                    valid = false;
+                }
+                
+                // Validate other discussion if 'Other' is selected
+                if (selected === 'Other' && !$wire.otherDiscussion.trim()) {
+                    fe.otherDiscussion = 'Please specify your discussion topic.';
+                    valid = false;
+                }
+                
+                // Validate email if needed
+                if (['email', 'both'].includes($wire.contactMethod)) {
+                    if (!$wire.email.trim()) {
+                        fe.email = 'The email field is required.';
+                        valid = false;
+                    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($wire.email)) {
+                        fe.email = 'Please enter a valid email address.';
+                        valid = false;
+                    } else if ($wire.email.length > 255) {
+                        fe.email = 'The email field must not exceed 255 characters.';
+                        valid = false;
+                    }
+                }
+                
+                // Validate phone if needed
+                if (['phone', 'both'].includes($wire.contactMethod)) {
+                    if (!$wire.phone.trim()) {
+                        fe.phone = 'The phone field is required.';
+                        valid = false;
+                    } else if ($wire.phone.length > 50) {
+                        fe.phone = 'The phone field must not exceed 50 characters.';
+                        valid = false;
+                    }
+                }
+                
+                if (valid) $wire.submit();
+            "
+            class="w-full max-w-xl space-y-8 relative">
+            
+            {{-- Full Name --}}
+            <div class="space-y-2">
+                <h2 class="text-xl md:text-2xl font-light">
+                    Hello, I am 
+                    <input 
+                        type="text" 
+                        wire:model="fullName"
+                        placeholder="Your Name"
+                        maxlength="255"
+                        class="bg-transparent border-b pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-auto mt-2 md:mt-0 text-brand-yellow font-medium italic px-2"
+                        :class="fe.fullName ? 'border-red-500' : 'border-white/20'">
+                </h2>
+                <p x-show="fe.fullName" x-text="fe.fullName" class="text-red-400 text-sm"></p>
+                @error('fullName') <p class="text-red-400 text-sm">{{ $message }}</p> @enderror
             </div>
 
-            <div class="space-y-4">
+            {{-- Discussion Topic --}}
+            <div class="space-y-2">
                 <h2 class="text-xl md:text-2xl font-light flex flex-wrap items-center gap-2">
                     And I'm looking to discuss 
                     
@@ -109,9 +202,11 @@
                     <template x-if="!hasTerms">
                         <input 
                             type="text" 
-                            placeholder="tell us more..." 
-                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-auto text-brand-yellow font-medium italic px-2"
-                            x-model="otherValue">
+                            wire:model="discussion"
+                            placeholder="tell us more..."
+                            maxlength="255"
+                            class="bg-transparent border-b pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-auto text-brand-yellow font-medium italic px-2"
+                            :class="fe.discussion ? 'border-red-500' : 'border-white/20'">
                     </template>
                     
                     {{-- If has terms, show dropdown --}}
@@ -120,7 +215,8 @@
                             <button 
                                 type="button" 
                                 @click="open = !open"
-                                class="border-b border-white/20 text-brand-yellow font-medium italic px-2 pb-1 flex items-center gap-2 hover:border-brand-yellow transition-all duration-300">
+                                class="border-b pb-1 text-brand-yellow font-medium italic px-2 flex items-center gap-2 transition-all duration-300"
+                                :class="fe.discussion ? 'border-red-500' : 'border-white/20 hover:border-brand-yellow'">
                                 <span x-text="showOtherInput ? 'Other' : selected"></span>
                                 <svg :class="open ? 'rotate-180' : ''" class="w-3 h-3 opacity-50 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
                             </button>
@@ -138,7 +234,7 @@
                                 <div class="flex flex-col py-2">
                                     <template x-for="option in options" :key="option">
                                         <div 
-                                            @click="selected = option; open = false; showOtherInput = option === 'Other'" 
+                                            @click="selected = option; open = false; showOtherInput = option === 'Other'; $wire.discussion = option" 
                                             class="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-white/60 hover:bg-brand-yellow hover:text-black cursor-pointer transition-colors" 
                                             x-text="option"></div>
                                     </template>
@@ -147,22 +243,30 @@
                         </div>
                     </template>
                 </h2>
+                <p x-show="fe.discussion" x-text="fe.discussion" class="text-red-400 text-sm"></p>
+                @error('discussion') <p class="text-red-400 text-sm">{{ $message }}</p> @enderror
                 
                 {{-- Show text input when "Other" is selected --}}
                 <template x-if="hasTerms && showOtherInput">
                     <div class="mt-4">
                         <input 
                             type="text" 
-                            placeholder="Please specify..." 
+                            wire:model="otherDiscussion"
+                            placeholder="Please specify..."
+                            maxlength="255"
                             class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
-                            x-model="otherValue"
+                            :class="fe.otherDiscussion ? 'border-red-500' : 'border-white/20'"
+                            x-model="otherDiscussion"
                             x-transition:enter="transition ease-out duration-200"
                             x-transition:enter-start="opacity-0"
                             x-transition:enter-end="opacity-100">
+                        <p x-show="fe.otherDiscussion" x-text="fe.otherDiscussion" class="text-red-400 text-sm mt-2"></p>
+                        @error('otherDiscussion') <p class="text-red-400 text-sm mt-2">{{ $message }}</p> @enderror
                     </div>
                 </template>
             </div>
 
+            {{-- Contact Method --}}
             <div class="space-y-4">
                 <div class="flex flex-wrap items-center gap-2">
                     <h2 class="text-xl md:text-2xl font-light">You can reach me at</h2>
@@ -171,22 +275,22 @@
                     <div class="flex items-center gap-1 bg-white/5 rounded-full p-1">
                         <button 
                             type="button"
-                            @click="contactMethod = 'email'"
-                            :class="contactMethod === 'email' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            @click="$wire.contactMethod = 'email'"
+                            :class="$wire.contactMethod === 'email' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Email
                         </button>
                         <button 
                             type="button"
-                            @click="contactMethod = 'phone'"
-                            :class="contactMethod === 'phone' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            @click="$wire.contactMethod = 'phone'"
+                            :class="$wire.contactMethod === 'phone' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Phone
                         </button>
                         <button 
                             type="button"
-                            @click="contactMethod = 'both'"
-                            :class="contactMethod === 'both' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            @click="$wire.contactMethod = 'both'"
+                            :class="$wire.contactMethod === 'both' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
                             class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
                             Both
                         </button>
@@ -194,48 +298,61 @@
                 </div>
                 
                 {{-- Email input --}}
-                <template x-if="contactMethod === 'email' || contactMethod === 'both'">
+                <template x-if="$wire.contactMethod === 'email' || $wire.contactMethod === 'both'">
                     <div 
                         class="flex items-center gap-2"
                         x-transition:enter="transition ease-out duration-200"
                         x-transition:enter-start="opacity-0 translate-y-2"
                         x-transition:enter-end="opacity-100 translate-y-0">
-                        <span class="text-white/40 text-sm" x-show="contactMethod === 'both'">Email:</span>
+                        <span class="text-white/40 text-sm" x-show="$wire.contactMethod === 'both'">Email:</span>
                         <input 
                             type="email" 
-                            placeholder="your@email.com" 
-                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
-                            x-model="emailValue">
+                            wire:model="email"
+                            placeholder="your@email.com"
+                            maxlength="255"
+                            class="bg-transparent border-b pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
+                            :class="fe.email ? 'border-red-500' : 'border-white/20'">
                     </div>
                 </template>
+                <p x-show="fe.email" x-text="fe.email" class="text-red-400 text-sm"></p>
+                @error('email') <p class="text-red-400 text-sm">{{ $message }}</p> @enderror
                 
                 {{-- Phone input --}}
-                <template x-if="contactMethod === 'phone' || contactMethod === 'both'">
+                <template x-if="$wire.contactMethod === 'phone' || $wire.contactMethod === 'both'">
                     <div 
                         class="flex items-center gap-2"
                         x-transition:enter="transition ease-out duration-200"
                         x-transition:enter-start="opacity-0 translate-y-2"
                         x-transition:enter-end="opacity-100 translate-y-0">
-                        <span class="text-white/40 text-sm" x-show="contactMethod === 'both'">Phone:</span>
+                        <span class="text-white/40 text-sm" x-show="$wire.contactMethod === 'both'">Phone:</span>
                         <input 
                             type="tel" 
-                            placeholder="+1 234 567 8900" 
-                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
-                            x-model="phoneValue">
+                            wire:model="phone"
+                            placeholder="+1 234 567 8900"
+                            maxlength="50"
+                            class="bg-transparent border-b pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
+                            :class="fe.phone ? 'border-red-500' : 'border-white/20'">
                     </div>
                 </template>
+                <p x-show="fe.phone" x-text="fe.phone" class="text-red-400 text-sm"></p>
+                @error('phone') <p class="text-red-400 text-sm">{{ $message }}</p> @enderror
                 
                 <p class="text-white/40 text-sm">to talk about the details.</p>
             </div>
 
             <div class="pt-10">
-                <button class="group relative inline-flex items-center gap-6 overflow-hidden">
-                    <div class="relative z-10 bg-brand-yellow text-black px-10 py-5 font-bold uppercase text-[11px] tracking-[0.3em] group-hover:bg-white transition-colors duration-300">
-                        Send Request
+                <button 
+                    type="submit"
+                    class="group relative inline-flex items-center gap-6 overflow-hidden"
+                    wire:loading.attr="disabled">
+                    <div class="relative z-10 bg-brand-yellow text-black px-10 py-5 font-bold uppercase text-[11px] tracking-[0.3em] group-hover:bg-white transition-colors duration-300 disabled:opacity-50">
+                        <span wire:loading.remove>Send Request</span>
+                        <span wire:loading>Sending...</span>
                     </div>
-                    <div class="w-12 h-[1px] bg-brand-yellow group-hover:w-20 transition-all duration-500"></div>
+                    <div class="w-12 h-px bg-brand-yellow group-hover:w-20 transition-all duration-500"></div>
                 </button>
             </div>
         </form>
+        @endif
     </div>
 </section>
