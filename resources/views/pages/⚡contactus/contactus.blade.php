@@ -13,11 +13,19 @@
     ];
 @endphp
 
+@php
+    $hasTerms = $inquiryTerms->isNotEmpty();
+    $termsList = $hasTerms ? $inquiryTerms->pluck('term')->toArray() : [];
+@endphp
+
 <section 
     x-data="{ 
         open: false, 
-        selected: 'a new website',
-        options: ['a new website', 'branding design branding design branding design', 'a partnership', 'something else']
+        selected: @js($hasTerms ? $termsList[0] ?? '' : ''),
+        options: @js($hasTerms ? array_merge($termsList, ['Other']) : []),
+        showOtherInput: false,
+        otherValue: '',
+        hasTerms: @js($hasTerms)
     }" 
     class="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row font-sans selection:bg-brand-yellow selection:text-black relative overflow-hidden">
     
@@ -93,33 +101,63 @@
             <div class="space-y-4">
                 <h2 class="text-xl md:text-2xl font-light flex flex-wrap items-center gap-2">
                     And I'm looking to discuss 
-                    <div class="relative inline-block" @click.away="open = false">
-                        <button 
-                            type="button" 
-                            @click="open = !open"
-                            class="border-b border-white/20 text-brand-yellow font-medium italic px-2 pb-1 flex items-center gap-2 hover:border-brand-yellow transition-all duration-300">
-                            <span x-text="selected"></span>
-                            <svg :class="open ? 'rotate-180' : ''" class="w-3 h-3 opacity-50 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        
-                        <div 
-                            x-show="open"
-                            x-transition:enter="transition ease-out duration-200"
-                            x-transition:enter-start="opacity-0 scale-95"
-                            x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-150"
-                            x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-95"
-                            class="absolute left-0 top-full mt-2 w-64 bg-[#0a0a0a] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,1)] z-50 rounded-sm overflow-hidden"
-                            style="display: none;">
-                            <div class="flex flex-col py-2">
-                                <template x-for="option in options" :key="option">
-                                    <div @click="selected = option; open = false" class="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-white/60 hover:bg-brand-yellow hover:text-black cursor-pointer transition-colors" x-text="option"></div>
-                                </template>
+                    
+                    {{-- If no terms, show text input directly --}}
+                    <template x-if="!hasTerms">
+                        <input 
+                            type="text" 
+                            placeholder="tell us more..." 
+                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-auto text-brand-yellow font-medium italic px-2"
+                            x-model="otherValue">
+                    </template>
+                    
+                    {{-- If has terms, show dropdown --}}
+                    <template x-if="hasTerms">
+                        <div class="relative inline-block" @click.away="open = false">
+                            <button 
+                                type="button" 
+                                @click="open = !open"
+                                class="border-b border-white/20 text-brand-yellow font-medium italic px-2 pb-1 flex items-center gap-2 hover:border-brand-yellow transition-all duration-300">
+                                <span x-text="showOtherInput ? 'Other' : selected"></span>
+                                <svg :class="open ? 'rotate-180' : ''" class="w-3 h-3 opacity-50 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            
+                            <div 
+                                x-show="open"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95"
+                                class="absolute left-0 top-full mt-2 w-64 bg-[#0a0a0a] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,1)] z-50 rounded-sm overflow-hidden"
+                                style="display: none;">
+                                <div class="flex flex-col py-2">
+                                    <template x-for="option in options" :key="option">
+                                        <div 
+                                            @click="selected = option; open = false; showOtherInput = option === 'Other'" 
+                                            class="px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-white/60 hover:bg-brand-yellow hover:text-black cursor-pointer transition-colors" 
+                                            x-text="option"></div>
+                                    </template>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </template>
                 </h2>
+                
+                {{-- Show text input when "Other" is selected --}}
+                <template x-if="hasTerms && showOtherInput">
+                    <div class="mt-4">
+                        <input 
+                            type="text" 
+                            placeholder="Please specify..." 
+                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
+                            x-model="otherValue"
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100">
+                    </div>
+                </template>
             </div>
 
             <div class="space-y-4">
