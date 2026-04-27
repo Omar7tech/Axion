@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->integer('sort')->default(0);
             $table->boolean('is_active')->default(true);
-            $table->string('role');
+            $table->string('role')->nullable();
             $table->timestamps();
         });
     }
