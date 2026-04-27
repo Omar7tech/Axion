@@ -13,7 +13,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-
 #[Guarded(['id'])]
 class Business extends Model implements HasMedia
 {
@@ -26,13 +25,10 @@ class Business extends Model implements HasMedia
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
-
-
     public function getRouteKeyName()
     {
         return 'slug';
     }
-
 
     public function registerMediaConversions(?Media $media = null): void
     {
