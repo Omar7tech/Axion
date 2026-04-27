@@ -24,7 +24,7 @@ class InquiryTermResource extends Resource
 {
     protected static ?string $model = InquiryTerm::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftEllipsis;
 
     protected static ?string $recordTitleAttribute = 'term';
 

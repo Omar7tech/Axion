@@ -22,7 +22,7 @@ class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedAcademicCap;
 
     protected static ?string $recordTitleAttribute = 'title';
 

@@ -21,7 +21,7 @@ class InvestmentResource extends Resource
 {
     protected static ?string $model = Investment::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBanknotes;
 
     protected static ?string $recordTitleAttribute = 'project_name';
 
