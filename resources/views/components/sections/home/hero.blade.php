@@ -88,19 +88,19 @@
 
                 {{-- 03. THE ELITE ACTUATOR BUTTONS --}}
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 pt-4">
-                    <button class="actuator-btn group relative h-16 w-full sm:w-64 overflow-hidden bg-brand-yellow"
+                    <a wire:navigate href="{{ route('about-us') }}" class="actuator-btn group relative h-16 w-full sm:w-64 overflow-hidden bg-brand-yellow"
                         style="clip-path: polygon(0 0, 100% 0, 100% 70%, 88% 100%, 0 100%);">
                         <div class="absolute inset-0 bg-black translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]"></div>
                         <div class="btn-content relative z-10 flex items-center justify-between h-full px-8 pointer-events-none">
                             <span class="text-[14px] font-black uppercase tracking-[0.25em] text-black group-hover:text-brand-yellow transition-colors duration-300">
-                                Get A Quote
+                                Our Vision
                             </span>
                             <div class="flex flex-col gap-[3px]">
                                 <div class="w-4 h-[2px] bg-black group-hover:bg-brand-yellow transition-all"></div>
                                 <div class="w-4 h-[2px] bg-black group-hover:bg-brand-yellow transition-all translate-x-1"></div>
                             </div>
                         </div>
-                    </button>
+                    </a>
 
                     <button @mouseenter="gsap.to($refs.sLine, { width: '100%', duration: 0.5, ease: 'expo.inOut' })"
                         @mouseleave="gsap.to($refs.sLine, { width: '0%', duration: 0.5, ease: 'expo.inOut' })"
