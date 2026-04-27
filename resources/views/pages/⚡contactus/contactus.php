@@ -13,6 +13,15 @@ new class extends Component
     public string $fullName = '';
     public string $discussion = '';
     public string $otherDiscussion = '';
+
+    public function mount(): void
+    {
+        // Set default discussion to first inquiry term if available
+        $firstTerm = InquiryTerm::first();
+        if ($firstTerm) {
+            $this->discussion = $firstTerm->term;
+        }
+    }
     public string $contactMethod = 'email';
     public string $email = '';
     public string $phone = '';
