@@ -129,17 +129,34 @@ new class extends Component
                 return;
             }
 
-            Inquiry::create([
+            $inquiry = Inquiry::create([
                 'full_name' => $validated['fullName'],
                 'email' => in_array($this->contactMethod, ['email', 'both']) ? $validated['email'] : null,
                 'phone' => in_array($this->contactMethod, ['phone', 'both']) ? $validated['phone'] : null,
                 'discussion' => $validated['discussion'],
             ]);
 
+            $bodyLines = [
+                'Full Name: ' . $inquiry->full_name,
+                'Email: ' . ($inquiry->email ?? '—'),
+                'Phone: ' . ($inquiry->phone ?? '—'),
+                '',
+                'Discussion Topic: ' . $inquiry->discussion,
+            ];
+
+            $subject = rawurlencode('New Inquiry — ' . $inquiry->full_name);
+            $body = rawurlencode(implode("\n", $bodyLines));
+
             $this->submitted = true;
             $this->dispatch('inquiry-submitted');
 
             $this->reset(['fullName', 'discussion', 'otherDiscussion', 'contactMethod', 'email', 'phone']);
+
+            $firstEmail = collect(app(\App\Settings\GeneralSettings::class)->contact_emails)->first()['email'] ?? null;
+
+            if (filled($firstEmail)) {
+                $this->js("window.location.href = 'mailto:{$firstEmail}?subject={$subject}&body={$body}'");
+            }
         } finally {
             $lock->release();
         }
