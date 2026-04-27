@@ -88,14 +88,7 @@
                             <div class="h-[2px] w-0 bg-black group-hover/card:w-full transition-all duration-700 delay-100"></div>
                         </div>
                         
-                        <div class="relative overflow-hidden w-6 h-6">
-                            <svg class="w-6 h-6 text-black absolute transition-transform duration-500 group-hover/card:translate-x-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                            <svg class="w-6 h-6 text-black absolute -translate-x-full transition-transform duration-500 group-hover/card:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </div>
+                       
                     </button>
                 </div>
 
