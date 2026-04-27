@@ -25,7 +25,10 @@
         options: @js($hasTerms ? array_merge($termsList, ['Other']) : []),
         showOtherInput: false,
         otherValue: '',
-        hasTerms: @js($hasTerms)
+        hasTerms: @js($hasTerms),
+        contactMethod: 'email',
+        emailValue: '',
+        phoneValue: ''
     }" 
     class="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row font-sans selection:bg-brand-yellow selection:text-black relative overflow-hidden">
     
@@ -161,7 +164,68 @@
             </div>
 
             <div class="space-y-4">
-                <h2 class="text-xl md:text-2xl font-light leading-relaxed">You can reach me at <input type="email" placeholder="Email Address" class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"> to talk about the details.</h2>
+                <div class="flex flex-wrap items-center gap-2">
+                    <h2 class="text-xl md:text-2xl font-light">You can reach me at</h2>
+                    
+                    {{-- Contact method toggle pills --}}
+                    <div class="flex items-center gap-1 bg-white/5 rounded-full p-1">
+                        <button 
+                            type="button"
+                            @click="contactMethod = 'email'"
+                            :class="contactMethod === 'email' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
+                            Email
+                        </button>
+                        <button 
+                            type="button"
+                            @click="contactMethod = 'phone'"
+                            :class="contactMethod === 'phone' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
+                            Phone
+                        </button>
+                        <button 
+                            type="button"
+                            @click="contactMethod = 'both'"
+                            :class="contactMethod === 'both' ? 'bg-brand-yellow text-black' : 'text-white/60 hover:text-white'"
+                            class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300">
+                            Both
+                        </button>
+                    </div>
+                </div>
+                
+                {{-- Email input --}}
+                <template x-if="contactMethod === 'email' || contactMethod === 'both'">
+                    <div 
+                        class="flex items-center gap-2"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <span class="text-white/40 text-sm" x-show="contactMethod === 'both'">Email:</span>
+                        <input 
+                            type="email" 
+                            placeholder="your@email.com" 
+                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
+                            x-model="emailValue">
+                    </div>
+                </template>
+                
+                {{-- Phone input --}}
+                <template x-if="contactMethod === 'phone' || contactMethod === 'both'">
+                    <div 
+                        class="flex items-center gap-2"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <span class="text-white/40 text-sm" x-show="contactMethod === 'both'">Phone:</span>
+                        <input 
+                            type="tel" 
+                            placeholder="+1 234 567 8900" 
+                            class="bg-transparent border-b border-white/20 pb-1 focus:border-brand-yellow outline-none transition-all w-full md:w-64 text-brand-yellow font-medium italic px-2"
+                            x-model="phoneValue">
+                    </div>
+                </template>
+                
+                <p class="text-white/40 text-sm">to talk about the details.</p>
             </div>
 
             <div class="pt-10">
